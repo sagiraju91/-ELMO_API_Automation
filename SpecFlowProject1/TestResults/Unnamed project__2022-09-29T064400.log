@@ -1,0 +1,252 @@
+﻿2022-09-29T06:44:00.4577754+10:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2022-09-29T06:44:00.4581939+10:00;VSTestExecutionThread;Info;SpecFlow+Runner 3.9.7 in Framework netcore31 in x64 mode execution started
+2022-09-29T06:44:00.4582026+10:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2022-09-29T06:44:00.4622693+10:00;VSTestExecutionThread;Info;Current UserName: 'sowjy', MachineName: 'DESKTOP-QOIP40E'
+2022-09-29T06:44:00.5064295+10:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowProject1.dll
+2022-09-29T06:44:00.5067816+10:00;VSTestExecutionThread;Info;Output folder configured to "C:\Users\sowjy\source\repos\SpecFlowProject1\TestResults" (default)
+2022-09-29T06:44:00.5071846+10:00;VSTestExecutionThread;Info;Profile: 
+2022-09-29T06:44:00.5903119+10:00;VSTestExecutionThread;Info;Log file path: C:\Users\sowjy\source\repos\SpecFlowProject1\TestResults\Unnamed project__2022-09-29T064400.log
+2022-09-29T06:44:00.5968684+10:00;Thread#12;Info;Checking activation
+2022-09-29T06:44:00.7702306+10:00;Thread#12;Info;Activated.
+2022-09-29T06:44:00.7705312+10:00;Thread#12;Info;Activation check completed
+2022-09-29T06:44:00.7706540+10:00;Thread#12;Info;Starting test run
+2022-09-29T06:44:00.9515384+10:00;Thread#12;Info;Discovering target: Default
+2022-09-29T06:44:00.9525601+10:00;Thread#12;Info;Discovering tests from assembly: C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowProject1.dll
+2022-09-29T06:44:01.2412123+10:00;Thread#12;Info;Discovered tests from assembly: C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowProject1.dll
+2022-09-29T06:44:01.2433337+10:00:Test Suite Dump
+2022-09-29T06:44:01.2458538+10:00:#0: Unnamed project/ - 
+2022-09-29T06:44:01.2459108+10:00:#1: Default - 
+2022-09-29T06:44:01.2459205+10:00:#2: SpecFlowProject1 - 
+2022-09-29T06:44:01.2459278+10:00:#11: apiupdatepersonalcontactdetails - 
+2022-09-29T06:44:01.2474086+10:00:#12: UpdateUserContactDetails - TestAssembly:SpecFlowProject1/Feature:apiupdatepersonalcontactdetails/Scenario:UpdateUserContactDetails
+2022-09-29T06:44:01.2475567+10:00:End: Test Suite Dump
+2022-09-29T06:44:01.2969765+10:00:Thread#0:Scheduler: get next test for thread 0
+2022-09-29T06:44:01.3009502+10:00:Thread#:Scheduler: testitem #12 from normal test queue 
+2022-09-29T06:44:01.3010815+10:00:Thread#0:Scheduler: considering testitem #12 for thread 0
+2022-09-29T06:44:01.3079768+10:00:Thread#0:TestItem#12:testItemMatchesCurrentTestThread:UnSpecific
+2022-09-29T06:44:01.3080037+10:00:Thread#0:TestItem#12:runsOnOneOtherThreadSpecific:False
+2022-09-29T06:44:01.3080133+10:00:Thread#0:TestItem#12:runsOnOneOtherThreadUnspecific:False
+2022-09-29T06:44:01.3080224+10:00:Thread#0:Scheduler: using testitem #12 for thread 0
+2022-09-29T06:44:01.3091805+10:00:Thread#0:Scheduler: Test #12 is scheduled for thread
+2022-09-29T06:44:01.3113855+10:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-09-29T06:44:01.3168862+10:00:Thread #0: creating new test thread executor for SpecFlowProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2022-09-29T06:44:01.3211252+10:00:Thread #0: Creating test assembly executor for execution model OutProc
+2022-09-29T06:44:01.3214418+10:00:Thread #0: Creating test assembly executor for execution model OutProc
+2022-09-29T06:44:01.3253887+10:00:Thread #0: using TechTalk.SpecRun.Framework.Execution.OutOfProc.StreamJsonRPC.OutOfProcessTestAssemblyExecutorHost to execute tests
+2022-09-29T06:44:01.3282326+10:00:starting Out Of Process Executor
+2022-09-29T06:44:01.3304616+10:00:Assembly resolving Microsoft.VisualStudio.Validation, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-09-29T06:44:01.3362143+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' from .deps.json file
+2022-09-29T06:44:01.3362501+10:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' from .deps.json
+2022-09-29T06:44:01.3377971+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1'
+2022-09-29T06:44:01.3382737+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2022-09-29T06:44:01.3384130+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.exe'
+2022-09-29T06:44:01.3385060+10:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1'
+2022-09-29T06:44:01.3388248+10:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-09-29T06:44:01.3395905+10:00:Tfm: netcoreapp3.1
+2022-09-29T06:44:01.3396107+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-09-29T06:44:01.3396138+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2022-09-29T06:44:01.3397445+10:00:[AssemblyCache] Found file 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll' for assembly 'Microsoft.VisualStudio.Validation'
+2022-09-29T06:44:01.3403741+10:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Validation' to C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll
+2022-09-29T06:44:01.3416450+10:00:Starting callback TCP Rpc server
+2022-09-29T06:44:01.3682675+10:00:Asynchronously starting background TCP Rpc Server on port 32770
+2022-09-29T06:44:01.3685575+10:00:Started callback TCP Rpc server on port 32770
+2022-09-29T06:44:01.3685978+10:00:Starting logger TCP Rpc server
+2022-09-29T06:44:01.3739289+10:00:Asynchronously starting background TCP Rpc Server on port 32771
+2022-09-29T06:44:01.3739950+10:00:Started logger TCP Rpc server on port 32771
+2022-09-29T06:44:01.5380581+10:00:Executing test executor at 'dotnet' 'exec "C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\TechTalk.SpecRun.Framework.Executor.anycpu.netcoreapp3_1.dll" --remoteRunnerPid 21568 --uniqueId "2022-09-29T064400" --outputFolder "C:\Users\sowjy\source\repos\SpecFlowProject1\TestResults" --callbackPort 32770 --loggerPort 32771' in 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1'
+2022-09-29T06:44:01.5781287+10:00:Executor with PID 26384 has been started successfully.
+2022-09-29T06:44:01.5829604+10:00:Out of Process Executor 26384 started
+2022-09-29T06:44:01.5829799+10:00:Waiting for endpoint
+2022-09-29T06:44:02.4238212+10:00:Assembly resolving Microsoft.VisualStudio.Threading, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-09-29T06:44:02.4238756+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' from .deps.json file
+2022-09-29T06:44:02.4238829+10:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' from .deps.json
+2022-09-29T06:44:02.4238899+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1'
+2022-09-29T06:44:02.4238936+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2022-09-29T06:44:02.4239757+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.exe'
+2022-09-29T06:44:02.4240555+10:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1'
+2022-09-29T06:44:02.4240716+10:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-09-29T06:44:02.4241067+10:00:Tfm: netcoreapp3.1
+2022-09-29T06:44:02.4241159+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-09-29T06:44:02.4241225+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2022-09-29T06:44:02.4242509+10:00:[AssemblyCache] Found file 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll' for assembly 'Microsoft.VisualStudio.Threading'
+2022-09-29T06:44:02.4251914+10:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Threading' to C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll
+2022-09-29T06:44:03.0198744+10:00:Remote executor port received: 32772
+2022-09-29T06:44:03.0206550+10:00:Creating executor TCP client on port 32772
+2022-09-29T06:44:03.0213227+10:00:Created executor TCP client on port 32772
+2022-09-29T06:44:03.0213347+10:00:Connecting to remote executor TCP server
+2022-09-29T06:44:03.0233682+10:00:Connected remote executor TCP server
+2022-09-29T06:44:03.0235719+10:00:trying to connect to Out of Process Executor the 1 attempt
+2022-09-29T06:44:03.0235816+10:00:Connection to Out of Process Executor established in the 1 attempt
+2022-09-29T06:44:03.2786436+10:00:2022-09-29T06:44:03.2765952+10:00:OutOfProcessTestAssemblyExecutor: initialized for C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowProject1.dll on test thread #0
+2022-09-29T06:44:03.2885409+10:00:Endpoint 26384 started
+2022-09-29T06:44:03.3207012+10:00:2022-09-29T06:44:03.3200425+10:00:OutOfProcessTestAssemblyExecutor: running tests...
+2022-09-29T06:44:03.5713672+10:00:2022-09-29T06:44:03.5686996+10:00:Assembly resolving TechTalk.SpecFlow, Version=3.9.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2022-09-29T06:44:03.5818319+10:00:2022-09-29T06:44:03.5778656+10:00:[AssemblyCache] Trying to resolve 'TechTalk.SpecFlow' from .deps.json file
+2022-09-29T06:44:03.5961411+10:00:2022-09-29T06:44:03.5879845+10:00:[AssemblyCache] Resolved 'TechTalk.SpecFlow' to 'C:\Users\sowjy\.nuget\packages\specflow\3.9.8\lib\netstandard2.0\TechTalk.SpecFlow.dll'
+2022-09-29T06:44:03.7988043+10:00:2022-09-29T06:44:03.7892571+10:00:Thread#0:T:-> Loading plugin C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowProject1.dll
+2022-09-29T06:44:03.8181648+10:00:2022-09-29T06:44:03.8011065+10:00:Assembly resolving Microsoft.Extensions.DependencyModel, Version=1.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-29T06:44:03.8469352+10:00:2022-09-29T06:44:03.8277647+10:00:[AssemblyCache] Trying to resolve 'Microsoft.Extensions.DependencyModel' from .deps.json file
+2022-09-29T06:44:03.8506509+10:00:2022-09-29T06:44:03.8484065+10:00:[AssemblyCache] Resolved 'Microsoft.Extensions.DependencyModel' to 'C:\Users\sowjy\.nuget\packages\microsoft.extensions.dependencymodel\1.0.3\lib\netstandard1.6\Microsoft.Extensions.DependencyModel.dll'
+2022-09-29T06:44:03.9461296+10:00:2022-09-29T06:44:03.9447337+10:00:Assembly resolving Microsoft.DotNet.PlatformAbstractions, Version=1.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-09-29T06:44:03.9469207+10:00:2022-09-29T06:44:03.9465907+10:00:[AssemblyCache] Trying to resolve 'Microsoft.DotNet.PlatformAbstractions' from .deps.json file
+2022-09-29T06:44:03.9484834+10:00:2022-09-29T06:44:03.9475399+10:00:[AssemblyCache] Resolved 'Microsoft.DotNet.PlatformAbstractions' to 'C:\Users\sowjy\.nuget\packages\microsoft.dotnet.platformabstractions\1.0.3\lib\netstandard1.3\Microsoft.DotNet.PlatformAbstractions.dll'
+2022-09-29T06:44:03.9585107+10:00:2022-09-29T06:44:03.9581216+10:00:Thread#0:T:-> Missing [assembly:RuntimePlugin] attribute in SpecFlowProject1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null. Please check https://go.specflow.org/doc-plugins for details.
+2022-09-29T06:44:03.9591432+10:00:2022-09-29T06:44:03.9588664+10:00:Thread#0:T:-> Loading plugin C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\LivingDoc.SpecFlowPlugin.dll
+2022-09-29T06:44:03.9622789+10:00:2022-09-29T06:44:03.9617636+10:00:Assembly resolving LivingDoc.Dtos, Version=3.9.0.0, Culture=neutral, PublicKeyToken=null
+2022-09-29T06:44:03.9629083+10:00:2022-09-29T06:44:03.9626138+10:00:[AssemblyCache] Trying to resolve 'LivingDoc.Dtos' from .deps.json file
+2022-09-29T06:44:03.9636340+10:00:2022-09-29T06:44:03.9633764+10:00:[AssemblyCache] Resolved 'LivingDoc.Dtos' to 'C:\Users\sowjy\.nuget\packages\specflow.plus.livingdocplugin\3.9.57\lib\netstandard2.0\LivingDoc.Dtos.dll'
+2022-09-29T06:44:03.9682754+10:00:2022-09-29T06:44:03.9671490+10:00:Thread#0:T:-> Loading plugin C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecRun.Runtime.SpecFlowPlugin.dll
+2022-09-29T06:44:03.9774842+10:00:2022-09-29T06:44:03.9771575+10:00:Thread#0:T:-> Using default config
+2022-09-29T06:44:03.9928763+10:00:2022-09-29T06:44:03.9921068+10:00:Assembly resolving Cucumber.Messages, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b10c5988214f940c
+2022-09-29T06:44:03.9939691+10:00:2022-09-29T06:44:03.9934299+10:00:[AssemblyCache] Trying to resolve 'Cucumber.Messages' from .deps.json file
+2022-09-29T06:44:03.9959547+10:00:2022-09-29T06:44:03.9949452+10:00:[AssemblyCache] Resolved 'Cucumber.Messages' to 'C:\Users\sowjy\.nuget\packages\cucumber.messages\6.0.1\lib\netstandard2.0\Cucumber.Messages.dll'
+2022-09-29T06:44:04.0030045+10:00:2022-09-29T06:44:03.9980851+10:00:Assembly resolving Google.Protobuf, Version=3.7.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604
+2022-09-29T06:44:04.0041264+10:00:2022-09-29T06:44:04.0035694+10:00:[AssemblyCache] Trying to resolve 'Google.Protobuf' from .deps.json file
+2022-09-29T06:44:04.0050367+10:00:2022-09-29T06:44:04.0046682+10:00:[AssemblyCache] Resolved 'Google.Protobuf' to 'C:\Users\sowjy\.nuget\packages\google.protobuf\3.7.0\lib\netstandard1.0\Google.Protobuf.dll'
+2022-09-29T06:44:04.0171191+10:00:2022-09-29T06:44:04.0165457+10:00:Assembly resolving Microsoft.VisualStudio.TestPlatform.ObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-09-29T06:44:04.0177650+10:00:2022-09-29T06:44:04.0174302+10:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.TestPlatform.ObjectModel' from .deps.json file
+2022-09-29T06:44:04.0188095+10:00:2022-09-29T06:44:04.0184996+10:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.TestPlatform.ObjectModel' to 'C:\Users\sowjy\.nuget\packages\microsoft.testplatform.objectmodel\17.0.0\lib\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll'
+2022-09-29T06:44:04.0601208+10:00:2022-09-29T06:44:04.0596390+10:00:Assembly resolving SpecFlow.Internal.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2022-09-29T06:44:04.9060378+10:00:2022-09-29T06:44:04.0603940+10:00:[AssemblyCache] Trying to resolve 'SpecFlow.Internal.Json' from .deps.json file
+2022-09-29T06:44:04.9143743+10:00:2022-09-29T06:44:04.9082817+10:00:[AssemblyCache] Resolved 'SpecFlow.Internal.Json' to 'C:\Users\sowjy\.nuget\packages\specflow.internal.json\1.0.8\lib\netstandard2.0\SpecFlow.Internal.Json.dll'
+2022-09-29T06:44:05.0602114+10:00:Thread#0: Test #12/0 is started on thread #0
+2022-09-29T06:44:05.1245335+10:00:2022-09-29T06:44:05.1211634+10:00:Thread#0:B:Given a working update user contact details api as
+2022-09-29T06:44:05.1264204+10:00:2022-09-29T06:44:05.1255465+10:00:Thread#0:B:  --- table step argument ---
+2022-09-29T06:44:05.1277105+10:00:2022-09-29T06:44:05.1270837+10:00:Thread#0:B:  | putUser                                                              |
+2022-09-29T06:44:05.1286937+10:00:2022-09-29T06:44:05.1281685+10:00:Thread#0:B:  | /users/eb5490d6-12f2-11ed-9353-024d2e4942a6/personal-contact-details |
+2022-09-29T06:44:05.1698603+10:00:2022-09-29T06:44:05.1693731+10:00:Assembly resolving Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed
+2022-09-29T06:44:05.1711143+10:00:2022-09-29T06:44:05.1704022+10:00:[AssemblyCache] Trying to resolve 'Newtonsoft.Json' from .deps.json file
+2022-09-29T06:44:05.1724700+10:00:2022-09-29T06:44:05.1719565+10:00:[AssemblyCache] Resolved 'Newtonsoft.Json' to 'C:\Users\sowjy\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll'
+2022-09-29T06:44:05.1767457+10:00:2022-09-29T06:44:05.1763341+10:00:Assembly resolving RestSharp, Version=108.0.1.0, Culture=neutral, PublicKeyToken=598062e77f915f75
+2022-09-29T06:44:05.1773154+10:00:2022-09-29T06:44:05.1770169+10:00:[AssemblyCache] Trying to resolve 'RestSharp' from .deps.json file
+2022-09-29T06:44:05.1782489+10:00:2022-09-29T06:44:05.1779148+10:00:[AssemblyCache] Resolved 'RestSharp' to 'C:\Users\sowjy\.nuget\packages\restsharp\108.0.1\lib\netstandard2.0\RestSharp.dll'
+2022-09-29T06:44:05.1801298+10:00:2022-09-29T06:44:05.1797502+10:00:Assembly resolving SpecFlow.Assist.Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2022-09-29T06:44:05.1807875+10:00:2022-09-29T06:44:05.1803899+10:00:[AssemblyCache] Trying to resolve 'SpecFlow.Assist.Dynamic' from .deps.json file
+2022-09-29T06:44:05.1817498+10:00:2022-09-29T06:44:05.1813466+10:00:[AssemblyCache] Resolved 'SpecFlow.Assist.Dynamic' to 'C:\Users\sowjy\.nuget\packages\specflow.assist.dynamic\1.4.2\lib\netstandard2.0\SpecFlow.Assist.Dynamic.dll'
+2022-09-29T06:44:05.3251701+10:00:2022-09-29T06:44:05.2872568+10:00:Thread#0:T:Request Body: {
+2022-09-29T06:44:05.3275614+10:00:2022-09-29T06:44:05.3262777+10:00:Thread#0:T:  "personalEmail": "test08@gmail.com",
+2022-09-29T06:44:05.3288068+10:00:2022-09-29T06:44:05.3283524+10:00:Thread#0:T:  "homePhoneCountryCode": "01",
+2022-09-29T06:44:05.3296253+10:00:2022-09-29T06:44:05.3290379+10:00:Thread#0:T:  "homePhoneAreaCode": "234",
+2022-09-29T06:44:05.3390897+10:00:2022-09-29T06:44:05.3385566+10:00:Thread#0:T:  "homePhone": "5678900",
+2022-09-29T06:44:05.3413146+10:00:2022-09-29T06:44:05.3395172+10:00:Thread#0:T:  "workPhone": "0123456789",
+2022-09-29T06:44:05.3425827+10:00:2022-09-29T06:44:05.3421429+10:00:Thread#0:T:  "mobileCountryCode": "01",
+2022-09-29T06:44:05.3432606+10:00:2022-09-29T06:44:05.3429270+10:00:Thread#0:T:  "mobileAreaCode": "234",
+2022-09-29T06:44:05.3438386+10:00:2022-09-29T06:44:05.3435223+10:00:Thread#0:T:  "personalMobile": "5678900",
+2022-09-29T06:44:05.3443512+10:00:2022-09-29T06:44:05.3440791+10:00:Thread#0:T:  "addressLine1": "580 George street",
+2022-09-29T06:44:05.3448485+10:00:2022-09-29T06:44:05.3445793+10:00:Thread#0:T:  "addressLine2": "townhall",
+2022-09-29T06:44:05.3454398+10:00:2022-09-29T06:44:05.3450838+10:00:Thread#0:T:  "suburb": "Sydney",
+2022-09-29T06:44:05.3459860+10:00:2022-09-29T06:44:05.3457140+10:00:Thread#0:T:  "state": "NSW",
+2022-09-29T06:44:05.3464938+10:00:2022-09-29T06:44:05.3462230+10:00:Thread#0:T:  "postCode": "2000",
+2022-09-29T06:44:05.3469809+10:00:2022-09-29T06:44:05.3467251+10:00:Thread#0:T:  "country": "AU"
+2022-09-29T06:44:05.3475072+10:00:2022-09-29T06:44:05.3471895+10:00:Thread#0:T:}
+2022-09-29T06:44:05.4373588+10:00:2022-09-29T06:44:05.4367627+10:00:Assembly resolving System.Text.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51
+2022-09-29T06:44:05.4382594+10:00:2022-09-29T06:44:05.4378633+10:00:[AssemblyCache] Trying to resolve 'System.Text.Json' from .deps.json file
+2022-09-29T06:44:05.4394091+10:00:2022-09-29T06:44:05.4389877+10:00:[AssemblyCache] Resolved 'System.Text.Json' to 'C:\Users\sowjy\.nuget\packages\system.text.json\5.0.0\lib\netcoreapp3.0\System.Text.Json.dll'
+2022-09-29T06:44:05.4627336+10:00:2022-09-29T06:44:05.4623246+10:00:Assembly resolving Microsoft.CSharp.resources, Version=4.0.5.0, Culture=en-GB, PublicKeyToken=b03f5f7f11d50a3a
+2022-09-29T06:44:05.4632780+10:00:2022-09-29T06:44:05.4630167+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' from .deps.json file
+2022-09-29T06:44:05.4637499+10:00:2022-09-29T06:44:05.4635099+10:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' from .deps.json
+2022-09-29T06:44:05.4666001+10:00:2022-09-29T06:44:05.4661856+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1'
+2022-09-29T06:44:05.4701471+10:00:2022-09-29T06:44:05.4697934+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\Microsoft.CSharp.resources.dll'
+2022-09-29T06:44:05.4708097+10:00:2022-09-29T06:44:05.4705250+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\Microsoft.CSharp.resources.exe'
+2022-09-29T06:44:05.4713889+10:00:2022-09-29T06:44:05.4711370+10:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1'
+2022-09-29T06:44:05.4722505+10:00:2022-09-29T06:44:05.4718829+10:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-09-29T06:44:05.4734698+10:00:2022-09-29T06:44:05.4730157+10:00:Tfm: netcoreapp3.1
+2022-09-29T06:44:05.4739854+10:00:2022-09-29T06:44:05.4737254+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-09-29T06:44:05.4744739+10:00:2022-09-29T06:44:05.4742379+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.CSharp.resources.dll'
+2022-09-29T06:44:05.4750838+10:00:2022-09-29T06:44:05.4747781+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.CSharp.resources.exe'
+2022-09-29T06:44:05.4757603+10:00:2022-09-29T06:44:05.4754235+10:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-09-29T06:44:05.4843132+10:00:2022-09-29T06:44:05.4839078+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29'
+2022-09-29T06:44:05.4850723+10:00:2022-09-29T06:44:05.4847042+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29\Microsoft.CSharp.resources.dll'
+2022-09-29T06:44:05.4938521+10:00:2022-09-29T06:44:05.4854976+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29\Microsoft.CSharp.resources.exe'
+2022-09-29T06:44:05.4945815+10:00:2022-09-29T06:44:05.4942701+10:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29'
+2022-09-29T06:44:05.4970747+10:00:2022-09-29T06:44:05.4960515+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29'
+2022-09-29T06:44:05.4980181+10:00:2022-09-29T06:44:05.4975241+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29\Microsoft.CSharp.resources.dll'
+2022-09-29T06:44:05.4991322+10:00:2022-09-29T06:44:05.4984963+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29\Microsoft.CSharp.resources.exe'
+2022-09-29T06:44:05.5008934+10:00:2022-09-29T06:44:05.4999427+10:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29'
+2022-09-29T06:44:05.5039380+10:00:2022-09-29T06:44:05.5025035+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29'
+2022-09-29T06:44:05.5046233+10:00:2022-09-29T06:44:05.5042371+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29\Microsoft.CSharp.resources.dll'
+2022-09-29T06:44:05.5053598+10:00:2022-09-29T06:44:05.5050216+10:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29\Microsoft.CSharp.resources.exe'
+2022-09-29T06:44:05.5063185+10:00:2022-09-29T06:44:05.5058241+10:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29'
+2022-09-29T06:44:05.5088847+10:00:2022-09-29T06:44:05.5082605+10:00:Assembly resolving Microsoft.CSharp.resources, Version=4.0.5.0, Culture=en, PublicKeyToken=b03f5f7f11d50a3a
+2022-09-29T06:44:06.4792753+10:00:2022-09-29T06:44:06.4755268+10:00:Thread#0:T:************** RESPONSE BODY ******************
+2022-09-29T06:44:06.4940253+10:00:2022-09-29T06:44:06.4808506+10:00:Thread#0:T:API Response Code : 200
+2022-09-29T06:44:06.6466331+10:00:2022-09-29T06:44:06.6454742+10:00:Thread#0:T:************** Verifying Response Data ******************
+2022-09-29T06:44:06.6622816+10:00:2022-09-29T06:44:06.6617833+10:00:Thread#0:T:PersonalEmail : test08@gmail.com
+2022-09-29T06:44:06.6665305+10:00:2022-09-29T06:44:06.6660067+10:00:Thread#0:T:HomePhone : 5678900
+2022-09-29T06:44:06.6730983+10:00:2022-09-29T06:44:06.6716276+10:00:Thread#0:T:WorkPhone : 123456789
+2022-09-29T06:44:06.6772948+10:00:2022-09-29T06:44:06.6767144+10:00:Thread#0:T:PersonalMobile : 5678900
+2022-09-29T06:44:06.6808854+10:00:2022-09-29T06:44:06.6803531+10:00:Thread#0:T:AddressLine1 : 580 George street
+2022-09-29T06:44:06.6843870+10:00:2022-09-29T06:44:06.6839693+10:00:Thread#0:T:AddressLine2 : townhall
+2022-09-29T06:44:06.6916612+10:00:2022-09-29T06:44:06.6912635+10:00:Thread#0:T:Suburb : Sydney
+2022-09-29T06:44:06.6944953+10:00:2022-09-29T06:44:06.6940532+10:00:Thread#0:T:State : 2
+2022-09-29T06:44:06.6972697+10:00:2022-09-29T06:44:06.6969071+10:00:Thread#0:T:PostCode : 2000
+2022-09-29T06:44:06.7008034+10:00:2022-09-29T06:44:06.7002850+10:00:Thread#0:T:Country : AU
+2022-09-29T06:44:06.7104969+10:00:2022-09-29T06:44:06.7100701+10:00:Thread#0:T:done: APIUpdateUserDetailSteps.GivenAWorkingUpdateUserContactDetailsApiAs(<table>) (1.5s)
+2022-09-29T06:44:06.7135684+10:00:2022-09-29T06:44:06.7132059+10:00:Thread#0:B:When the PUT Request  called for an user
+2022-09-29T06:44:06.7172474+10:00:2022-09-29T06:44:06.7166320+10:00:Thread#0:T:done: APIUpdateUserDetailSteps.WhenThePUTRequestCalledForAnUser() (0.0s)
+2022-09-29T06:44:06.7203004+10:00:2022-09-29T06:44:06.7187657+10:00:Thread#0:B:Then the result should show updated user contact details
+2022-09-29T06:44:06.7239481+10:00:2022-09-29T06:44:06.7234465+10:00:Thread#0:T:done: APIUpdateUserDetailSteps.ThenTheResultShouldShowUpdatedUserContactDetails() (0.0s)
+2022-09-29T06:44:06.7416219+10:00:Thread#0:Scheduler: get next test for thread 0
+2022-09-29T06:44:06.7416931+10:00:Thread#:Scheduler: at the end of normal test queue
+2022-09-29T06:44:06.7417180+10:00:Thread#0:Scheduler: enumerator for thread is at end
+2022-09-29T06:44:06.7417273+10:00:Thread#0:Scheduler: No more tests for thread
+2022-09-29T06:44:06.8200766+10:00:Thread#0: Test #12/0 is finished on thread #0 as Succeeded within 1.7586278 seconds
+2022-09-29T06:44:06.8354695+10:00:2022-09-29T06:44:06.8322328+10:00:Got Deinitialize Signal
+2022-09-29T06:44:06.8424758+10:00:RPC Client disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Stream has been disposed
+Exception:<none>
+2022-09-29T06:44:06.8452771+10:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Reached end of stream.
+Exception:<none>
+2022-09-29T06:44:06.8474262+10:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Stream has been disposed
+Exception:<none>
+2022-09-29T06:44:06.8499378+10:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.2.0, Culture=en-US, PublicKeyToken=b03f5f7f11d50a3a
+2022-09-29T06:44:06.8499690+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' from .deps.json file
+2022-09-29T06:44:06.8499846+10:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' from .deps.json
+2022-09-29T06:44:06.8500017+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1'
+2022-09-29T06:44:06.8500086+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\System.Diagnostics.Process.resources.dll'
+2022-09-29T06:44:06.8501209+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\System.Diagnostics.Process.resources.exe'
+2022-09-29T06:44:06.8502096+10:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1'
+2022-09-29T06:44:06.8502263+10:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-09-29T06:44:06.8503224+10:00:Tfm: netcoreapp3.1
+2022-09-29T06:44:06.8503356+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-09-29T06:44:06.8503411+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Diagnostics.Process.resources.dll'
+2022-09-29T06:44:06.8504639+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Diagnostics.Process.resources.exe'
+2022-09-29T06:44:06.8505715+10:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\repos\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-09-29T06:44:06.8606446+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29'
+2022-09-29T06:44:06.8606694+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29\System.Diagnostics.Process.resources.dll'
+2022-09-29T06:44:06.8607886+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29\System.Diagnostics.Process.resources.exe'
+2022-09-29T06:44:06.8608644+10:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29'
+2022-09-29T06:44:06.8612806+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29'
+2022-09-29T06:44:06.8612942+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29\System.Diagnostics.Process.resources.dll'
+2022-09-29T06:44:06.8613725+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29\System.Diagnostics.Process.resources.exe'
+2022-09-29T06:44:06.8614437+10:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29'
+2022-09-29T06:44:06.8617171+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29'
+2022-09-29T06:44:06.8617304+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29\System.Diagnostics.Process.resources.dll'
+2022-09-29T06:44:06.8618173+10:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29\System.Diagnostics.Process.resources.exe'
+2022-09-29T06:44:06.8618896+10:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29'
+2022-09-29T06:44:06.8633822+10:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.2.0, Culture=en, PublicKeyToken=b03f5f7f11d50a3a
+2022-09-29T06:44:06.8829587+10:00:Thread#-1:Scheduler: get next test for thread -1
+2022-09-29T06:44:06.8832169+10:00:Thread#:Scheduler: at the end of normal test queue
+2022-09-29T06:44:06.8832366+10:00:Thread#-1:Scheduler: enumerator for thread is at end
+2022-09-29T06:44:06.8894364+10:00;Thread#12;Info;test run finished
+2022-09-29T06:44:06.8900796+10:00;Thread#12;Info;publishing test results
+2022-09-29T06:44:06.8905529+10:00;Thread#12;Info;Not publishing results.
+2022-09-29T06:44:06.8908281+10:00;Thread#12;Info;test results published
+2022-09-29T06:44:06.8910667+10:00;Thread#12;Info;generating reports
+2022-09-29T06:44:07.0356982+10:00;Thread#12;Info;Starting external report generation process
+2022-09-29T06:44:10.1278864+10:00;Thread#12;Info;Successfully generated reports.
+2022-09-29T06:44:10.1311568+10:00;Thread#12;Info;Successfully generated reports
+2022-09-29T06:44:10.1398257+10:00:Total: 1
+2022-09-29T06:44:10.1441985+10:00:Succeeded: 1
+2022-09-29T06:44:10.1446004+10:00:Ignored: 0
+2022-09-29T06:44:10.1448672+10:00:Pending: 0
+2022-09-29T06:44:10.1448790+10:00:Skipped: 0
+2022-09-29T06:44:10.1451033+10:00:Failed: 0
+2022-09-29T06:44:10.1566041+10:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2022-09-29T06:44:10.1569731+10:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\sowjy\source\repos\SpecFlowProject1\TestResults\Unnamed project__2022-09-29T064400.html'
+========== End of log file ==========

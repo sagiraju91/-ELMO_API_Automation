@@ -1,0 +1,16 @@
+{
+  "personalEmail": "test08@gmail.com",
+  "homePhoneCountryCode": "01",
+  "homePhoneAreaCode": "234",
+  "homePhone": "5678900",
+  "workPhone": "0123456789",
+  "mobileCountryCode": "01",
+  "mobileAreaCode": "234",
+  "personalMobile": "5678900",
+  "addressLine1": "580 George street",
+  "addressLine2": "townhall",
+  "suburb": "Sydney",
+  "state": "NSW",
+  "postCode": "2000",
+  "country": "AU"
+}
