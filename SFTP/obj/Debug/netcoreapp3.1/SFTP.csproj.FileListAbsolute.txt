@@ -1,4 +1,3 @@
-C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.csproj.AssemblyReference.cache
 C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.AssemblyInfoInputs.cache
 C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.AssemblyInfo.cs
@@ -261,3 +260,4 @@ C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.csproj.CopyComplete
 C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.dll
 C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.pdb
 C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.genruntimeconfig.cache
+C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.csproj.AssemblyReference.cache

@@ -16,10 +16,9 @@ namespace SFTP.Utility
         SshClient sshClnt = null;
         const string workingdirectory = "/public";
 
-
+        //Upload File to SFTP Server
         public void UploadToSFTP(string uploadfile)
         {
-
             SftpClient sftp = new SftpClient(host, username, password);
             sftp.Connect();
 
@@ -28,47 +27,105 @@ namespace SFTP.Utility
             using (var fileStream = new FileStream(uploadfile, FileMode.Open))
             {
                 sftp.UploadFile(fileStream, Path.GetFileName(uploadfile));
-                sftp.Disconnect();
             }
+            sftp.Disconnect();
         }
 
-
-
         // Delete File from SFTP Server
-        public void DeleteSFTP(string DeleteFile)
+        public void DeleteFromSFTP(string sftpFile)
         {
 
             SftpClient sftp = new SftpClient(host, username, password);
             sftp.Connect();
             try
             {
-                sftp.DeleteFile(@"C:\Users\sowjy\Dropbox\PC\Desktop\LocalFiles\sjFile.txt");
+                sftp.DeleteFile(sftpFile);
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+                sftp.Disconnect();
+            }
+           
+        //Download File from SFTP Server
+        public void DownloadFromSFTP(string sftpFileName, string localPath)
+        {
+            SftpClient sftp = new SftpClient(host, username, password);
+            sftp.Connect();
+            
+            string pathSFTP = Path.Combine(workingdirectory, sftpFileName);
+            string pathDownload = Path.Combine(localPath, sftpFileName);
+
+            try
+            {
+                using (Stream fileStream = File.Create(pathDownload))
+                {
+                    sftp.DownloadFile(pathSFTP, fileStream);
+                }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Delete file Error !" + e.Message);
+                Console.WriteLine(e.Message);
             }
+            sftp.Disconnect();
+        }
 
-            //// Download File from SFTP Server
-            //            try { 
-            //                string serverFile = @"\public\Test.txt";
-            //                string locaFile = @"C:\Users\E005457\Desktop\fileOperations\Downloads\Test.txt";
-            //                using (Stream stream = File.OpenWrite(locaFile))
-            //                {
-            //                    client.DownloadFile(serverFile, stream, x => { Console.WriteLine(x); });
-            //                }
 
-            //                }catch (Exception e)
-            //                {
-            //                Console.WriteLine("File download Error !" + e.Message);
-            //                }
+        //Move File in SFTP Server Locations
+        public void FileMoveSFTP(string sftpsrc, string sftpdest)
+        {
+            SftpClient sftp = new SftpClient(host, username, password);
+            sftp.Connect();
 
-            //Disconnect SFTP Server
-             void DisconnectSFTP()
+            string pathSrc = Path.Combine(workingdirectory, sftpsrc);
+            sftp.ChangeDirectory(sftpdest);
+            string pathDest = sftp.WorkingDirectory;
+            string finalDestFile = Path.Combine(pathDest, sftpsrc);
+
+            try
             {
-                sshClnt.Disconnect();
+               var file= sftp.Get(pathSrc);
+                file.MoveTo(finalDestFile);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            sftp.Disconnect();
+        }
+
+        //Copy File in SFTP Server Locations
+        public void FileCopySFTP(string sftpsrc, string sftpdest)
+        {
+            SftpClient sftp = new SftpClient(host, username, password);
+            sftp.Connect();
+
+            string pathSrc = Path.Combine(workingdirectory, sftpsrc);
+            sftp.ChangeDirectory(sftpdest);
+            string pathDest = sftp.WorkingDirectory;
+            string finalDestFile = Path.Combine(pathDest, sftpsrc);
+
+            try
+            {
+                var file1 = sftp.OpenRead(pathSrc);
+                var file2 = sftp.OpenWrite(finalDestFile);
+                int data;
+
+                while((data= file1.ReadByte()) != -1)
+                {
+                    file2.WriteByte((byte) data);
+                }
+                file2.Flush();
+                file1.Close();
+                file2.Close();
 
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            sftp.Disconnect();
         }
     }
+    
 }

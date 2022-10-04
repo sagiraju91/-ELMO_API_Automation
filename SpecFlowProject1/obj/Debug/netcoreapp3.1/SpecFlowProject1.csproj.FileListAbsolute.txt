@@ -517,7 +517,6 @@ C:\Users\sowjy\source\ELMO\SpecFlowProject1\bin\Debug\netcoreapp3.1\zh-Hant\Micr
 C:\Users\sowjy\source\ELMO\SpecFlowProject1\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\sowjy\source\ELMO\SpecFlowProject1\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\sowjy\source\ELMO\SpecFlowProject1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\sowjy\source\ELMO\SpecFlowProject1\obj\Debug\netcoreapp3.1\SpecFlowProject1.csproj.AssemblyReference.cache
 C:\Users\sowjy\source\ELMO\SpecFlowProject1\obj\Debug\netcoreapp3.1\SpecFlowProject1.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\sowjy\source\ELMO\SpecFlowProject1\obj\Debug\netcoreapp3.1\SpecFlowProject1.AssemblyInfoInputs.cache
 C:\Users\sowjy\source\ELMO\SpecFlowProject1\obj\Debug\netcoreapp3.1\SpecFlowProject1.AssemblyInfo.cs
