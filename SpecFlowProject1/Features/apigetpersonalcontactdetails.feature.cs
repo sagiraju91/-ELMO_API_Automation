@@ -98,12 +98,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "getUser"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "/users/33c65058-17ac-11ed-8971-02ea2a01b072/personal-contact-details"});
 #line 6
- testRunner.Given("a working get user contact details api as", ((string)(null)), table3, "Given ");
+ testRunner.Given("a working get user contact details api as", ((string)(null)), table7, "Given ");
 #line hidden
 #line 9
  testRunner.When("the GET Request  called for an user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

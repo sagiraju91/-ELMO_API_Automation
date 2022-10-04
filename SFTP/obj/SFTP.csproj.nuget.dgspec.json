@@ -48,6 +48,14 @@
               "target": "Package",
               "version": "[17.0.0, )"
             },
+            "SSH.NET": {
+              "target": "Package",
+              "version": "[2020.0.2, )"
+            },
+            "SpecFlow.Assist.Dynamic": {
+              "target": "Package",
+              "version": "[1.4.2, )"
+            },
             "SpecFlow.Plus.LivingDocPlugin": {
               "target": "Package",
               "version": "[3.9.57, )"

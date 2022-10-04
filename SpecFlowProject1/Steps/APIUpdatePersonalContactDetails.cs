@@ -15,11 +15,10 @@ namespace SpecFlowProject1.Steps
     class APIUpdateUserDetailSteps
     {
        
-
         [Given(@"a working update user contact details api as")]
         public void GivenAWorkingUpdateUserContactDetailsApiAs(Table table)
         {
-            string jsonFile = @"C:\Users\sowjy\source\repos\SpecFlowProject1\JSONBODY\updatepersonaldetails.json";
+            string jsonFile = @"C:\Users\sowjy\source\ELMO\SpecFlowProject1\JSONBODY\updatepersonaldetails.json";
 
             JObject obj = JObject.Parse(File.ReadAllText(jsonFile));
 

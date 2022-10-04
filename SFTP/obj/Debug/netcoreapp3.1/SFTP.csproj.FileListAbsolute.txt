@@ -1,3 +1,8 @@
+C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.csproj.AssemblyReference.cache
+C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.AssemblyInfoInputs.cache
+C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.AssemblyInfo.cs
+C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.csproj.CoreCompileInputs.cache
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\BoDi.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\SpecRun.Runtime.SpecFlowPlugin.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\TechTalk.SpecRun.dll
@@ -163,6 +168,7 @@ C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\SFTP.runtimeconfig.dev.j
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\SFTP.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\SFTP.pdb
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\Cucumber.Messages.dll
+C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\Dynamitey.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\FluentAssertions.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\Gherkin.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
@@ -178,7 +184,10 @@ C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.T
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\TechTalk.SpecFlow.dll
+C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\SpecFlow.Assist.Dynamic.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\SpecFlow.Internal.Json.dll
+C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
@@ -248,11 +257,6 @@ C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPl
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\sowjy\source\ELMO\SFTP\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.csproj.AssemblyReference.cache
-C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.AssemblyInfoInputs.cache
-C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.AssemblyInfo.cs
-C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.csproj.CoreCompileInputs.cache
 C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.csproj.CopyComplete
 C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.dll
 C:\Users\sowjy\source\ELMO\SFTP\obj\Debug\netcoreapp3.1\SFTP.pdb

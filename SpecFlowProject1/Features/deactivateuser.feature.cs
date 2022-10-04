@@ -98,12 +98,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                             "deactivateUser"});
-                table8.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "/users/33c65058-17ac-11ed-8971-02ea2a01b072/deactivate"});
 #line 6
- testRunner.Given("deactivate user api as", ((string)(null)), table8, "Given ");
+ testRunner.Given("deactivate user api as", ((string)(null)), table19, "Given ");
 #line hidden
 #line 9
  testRunner.When("the POST method called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

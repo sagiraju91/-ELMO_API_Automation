@@ -98,12 +98,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "putUser"});
-                table7.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "/users/eb5490d6-12f2-11ed-9353-024d2e4942a6/personal-contact-details"});
 #line 6
- testRunner.Given("a working update user contact details api as", ((string)(null)), table7, "Given ");
+ testRunner.Given("a working update user contact details api as", ((string)(null)), table18, "Given ");
 #line hidden
 #line 9
  testRunner.When("the PUT Request  called for an user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

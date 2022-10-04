@@ -7,9 +7,15 @@
 
   <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\activateuser - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\apigetdepartments - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\apigetlegalentity - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\apigetpersonalcontactdetails - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\apigetuserdetails - Copy.feature.cs" />
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\apigetusers - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\apileavetypes - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\apilocations - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\apipayrollcycles - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\apipositions - Copy.feature.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,8 +35,41 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Features\apigetdepartmentdetails.feature.cs">
+      <DependentUpon>apigetdepartmentdetails.feature</DependentUpon>
+    </Compile>
     <Compile Update="Features\apigetdepartments.feature.cs">
       <DependentUpon>apigetdepartments.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apigetemployementdetails.feature.cs">
+      <DependentUpon>apigetemployementdetails.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apigetlegalentitydetails.feature.cs">
+      <DependentUpon>apigetlegalentitydetails.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apigetlegalentity.feature.cs">
+      <DependentUpon>apigetlegalentity.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apileavetypesdetails.feature.cs">
+      <DependentUpon>apileavetypesdetails.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apilocationdetails.feature.cs">
+      <DependentUpon>apilocationdetails.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apipayrollcyclesDetails.feature.cs">
+      <DependentUpon>apipayrollcyclesDetails.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apipositiondetails.feature.cs">
+      <DependentUpon>apipositiondetails.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apileavetypes.feature.cs">
+      <DependentUpon>apileavetypes.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apipayrollcycles.feature.cs">
+      <DependentUpon>apipayrollcycles.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\apipositions.feature.cs">
+      <DependentUpon>apipositions.feature</DependentUpon>
     </Compile>
     <Compile Update="Features\apiupdatepersonalcontactdetails.feature.cs">
       <DependentUpon>apiupdatepersonalcontactdetails.feature</DependentUpon>
@@ -44,7 +83,51 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\apigetdepartmentdetails.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\apigetdepartments.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apigetemployementdetails.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apigetlegalentitydetails.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apigetlegalentity.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apileavetypesdetails.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apilocationdetails.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apipayrollcyclesDetails.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apipositiondetails.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apileavetypes.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apipayrollcycles.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\apipositions.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
     </SpecFlowFeatureFiles>

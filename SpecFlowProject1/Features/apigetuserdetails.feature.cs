@@ -98,12 +98,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                             "getUser"});
-                table4.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "/users/33c65058-17ac-11ed-8971-02ea2a01b072"});
 #line 6
- testRunner.Given("a working get user api as", ((string)(null)), table4, "Given ");
+ testRunner.Given("a working get user api as", ((string)(null)), table8, "Given ");
 #line hidden
 #line 9
  testRunner.When("the GET Request is called for an user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

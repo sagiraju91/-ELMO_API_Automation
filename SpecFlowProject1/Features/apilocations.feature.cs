@@ -98,12 +98,12 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
                             "getLocs"});
-                table6.AddRow(new string[] {
+                table13.AddRow(new string[] {
                             "/locations"});
 #line 6
- testRunner.Given("the locationsAPI as", ((string)(null)), table6, "Given ");
+ testRunner.Given("the locationsAPI as", ((string)(null)), table13, "Given ");
 #line hidden
 #line 9
  testRunner.When("the GET Locations is called", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
