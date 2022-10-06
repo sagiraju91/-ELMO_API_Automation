@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowProject1", "SpecFlowProject1.csproj", "{30A4FD31-E96F-4080-86D8-87B00AC026D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFTP", "..\SFTP\SFTP.csproj", "{6EE4B258-76E7-4CA8-937A-664252F9BF83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFTP", "..\SFTP\SFTP.csproj", "{6EE4B258-76E7-4CA8-937A-664252F9BF83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumDemoWithHooks", "..\SeleniumDemoWithHooks\SeleniumDemoWithHooks.csproj", "{C6F7C831-C4FF-4BB4-9D2E-D1D8B8720AC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6EE4B258-76E7-4CA8-937A-664252F9BF83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EE4B258-76E7-4CA8-937A-664252F9BF83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EE4B258-76E7-4CA8-937A-664252F9BF83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6F7C831-C4FF-4BB4-9D2E-D1D8B8720AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6F7C831-C4FF-4BB4-9D2E-D1D8B8720AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6F7C831-C4FF-4BB4-9D2E-D1D8B8720AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6F7C831-C4FF-4BB4-9D2E-D1D8B8720AC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,278 @@
+﻿2022-10-07T07:36:56.4450130+11:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2022-10-07T07:36:56.4452162+11:00;VSTestExecutionThread;Info;SpecFlow+Runner 3.9.7 in Framework netcore31 in x64 mode execution started
+2022-10-07T07:36:56.4452217+11:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2022-10-07T07:36:56.4473909+11:00;VSTestExecutionThread;Info;Current UserName: 'sowjy', MachineName: 'DESKTOP-QOIP40E'
+2022-10-07T07:36:56.4934694+11:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll
+2022-10-07T07:36:56.4937574+11:00;VSTestExecutionThread;Info;Output folder configured to "C:\Users\sowjy\source\ELMO\SpecFlowProject1\TestResults" (default)
+2022-10-07T07:36:56.4938357+11:00;VSTestExecutionThread;Info;Profile: 
+2022-10-07T07:36:56.5589567+11:00;VSTestExecutionThread;Info;Log file path: C:\Users\sowjy\source\ELMO\SpecFlowProject1\TestResults\Unnamed project__2022-10-07T073656.log
+2022-10-07T07:36:56.5652957+11:00;Thread#13;Info;Checking activation
+2022-10-07T07:36:56.6959163+11:00;Thread#13;Info;Activated.
+2022-10-07T07:36:56.6961889+11:00;Thread#13;Info;Activation check completed
+2022-10-07T07:36:56.6965562+11:00;Thread#13;Info;Starting test run
+2022-10-07T07:36:56.8122665+11:00;Thread#13;Info;Discovering target: Default
+2022-10-07T07:36:56.8124463+11:00;Thread#13;Info;Discovering tests from assembly: C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll
+2022-10-07T07:36:56.9803101+11:00;Thread#13;Info;Discovered tests from assembly: C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll
+2022-10-07T07:36:56.9892652+11:00:Test Suite Dump
+2022-10-07T07:36:56.9920246+11:00:#0: Unnamed project/ - 
+2022-10-07T07:36:56.9920653+11:00:#1: Default - 
+2022-10-07T07:36:56.9920700+11:00:#2: SeleniumDemoWithHooks - 
+2022-10-07T07:36:56.9920737+11:00:#3: Home Page - 
+2022-10-07T07:36:56.9920771+11:00:#6: Login Test - 
+2022-10-07T07:36:56.9938256+11:00:#4: User Home Paage Login Link1 - TestAssembly:SeleniumDemoWithHooks/Feature:Home+Page/Scenario:User+Home+Paage+Login+Link1
+2022-10-07T07:36:56.9939020+11:00:#5: User Home Paage Login Link2 - TestAssembly:SeleniumDemoWithHooks/Feature:Home+Page/Scenario:User+Home+Paage+Login+Link2
+2022-10-07T07:36:56.9939191+11:00:#7: Login with vaid UserCredentials - TestAssembly:SeleniumDemoWithHooks/Feature:Login+Test/Scenario:Login+with+vaid+UserCredentials
+2022-10-07T07:36:56.9939626+11:00:End: Test Suite Dump
+2022-10-07T07:36:57.0149139+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-07T07:36:57.0172785+11:00:Thread#:Scheduler: testitem #4 from normal test queue 
+2022-10-07T07:36:57.0173683+11:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2022-10-07T07:36:57.0215796+11:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-07T07:36:57.0216029+11:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2022-10-07T07:36:57.0216095+11:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2022-10-07T07:36:57.0216155+11:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2022-10-07T07:36:57.0222585+11:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2022-10-07T07:36:57.0231524+11:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-10-07T07:36:57.0250061+11:00:Thread #0: creating new test thread executor for SeleniumDemoWithHooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2022-10-07T07:36:57.0272024+11:00:Thread #0: Creating test assembly executor for execution model OutProc
+2022-10-07T07:36:57.0274171+11:00:Thread #0: Creating test assembly executor for execution model OutProc
+2022-10-07T07:36:57.0306918+11:00:Thread #0: using TechTalk.SpecRun.Framework.Execution.OutOfProc.StreamJsonRPC.OutOfProcessTestAssemblyExecutorHost to execute tests
+2022-10-07T07:36:57.0329464+11:00:starting Out Of Process Executor
+2022-10-07T07:36:57.0376836+11:00:Assembly resolving Microsoft.VisualStudio.Validation, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-07T07:36:57.0418520+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' from .deps.json file
+2022-10-07T07:36:57.0418768+11:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' from .deps.json
+2022-10-07T07:36:57.0434466+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-07T07:36:57.0438318+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2022-10-07T07:36:57.0439271+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.exe'
+2022-10-07T07:36:57.0439738+11:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-07T07:36:57.0441416+11:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-10-07T07:36:57.0446483+11:00:Tfm: netcoreapp3.1
+2022-10-07T07:36:57.0446594+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-07T07:36:57.0446616+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2022-10-07T07:36:57.0447327+11:00:[AssemblyCache] Found file 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll' for assembly 'Microsoft.VisualStudio.Validation'
+2022-10-07T07:36:57.0451392+11:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Validation' to C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll
+2022-10-07T07:36:57.0456770+11:00:Starting callback TCP Rpc server
+2022-10-07T07:36:57.0728561+11:00:Asynchronously starting background TCP Rpc Server on port 32768
+2022-10-07T07:36:57.0729081+11:00:Started callback TCP Rpc server on port 32768
+2022-10-07T07:36:57.0729147+11:00:Starting logger TCP Rpc server
+2022-10-07T07:36:57.0751366+11:00:Asynchronously starting background TCP Rpc Server on port 32769
+2022-10-07T07:36:57.0751645+11:00:Started logger TCP Rpc server on port 32769
+2022-10-07T07:36:57.1660770+11:00:Executing test executor at 'dotnet' 'exec "C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\TechTalk.SpecRun.Framework.Executor.anycpu.netcoreapp3_1.dll" --remoteRunnerPid 14560 --uniqueId "2022-10-07T073656" --outputFolder "C:\Users\sowjy\source\ELMO\SpecFlowProject1\TestResults" --callbackPort 32768 --loggerPort 32769' in 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-07T07:36:57.1803073+11:00:Executor with PID 9520 has been started successfully.
+2022-10-07T07:36:57.1841840+11:00:Out of Process Executor 9520 started
+2022-10-07T07:36:57.1842059+11:00:Waiting for endpoint
+2022-10-07T07:36:57.6632966+11:00:Assembly resolving Microsoft.VisualStudio.Threading, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-07T07:36:57.6633222+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' from .deps.json file
+2022-10-07T07:36:57.6633277+11:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' from .deps.json
+2022-10-07T07:36:57.6633334+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-07T07:36:57.6633380+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2022-10-07T07:36:57.6634373+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.exe'
+2022-10-07T07:36:57.6635031+11:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-07T07:36:57.6635097+11:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-10-07T07:36:57.6635421+11:00:Tfm: netcoreapp3.1
+2022-10-07T07:36:57.6635485+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-07T07:36:57.6635520+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2022-10-07T07:36:57.6636627+11:00:[AssemblyCache] Found file 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll' for assembly 'Microsoft.VisualStudio.Threading'
+2022-10-07T07:36:57.6646350+11:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Threading' to C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll
+2022-10-07T07:36:59.2171993+11:00:Remote executor port received: 32770
+2022-10-07T07:36:59.2179185+11:00:Creating executor TCP client on port 32770
+2022-10-07T07:36:59.2193969+11:00:Created executor TCP client on port 32770
+2022-10-07T07:36:59.2195084+11:00:Connecting to remote executor TCP server
+2022-10-07T07:36:59.2211642+11:00:Connected remote executor TCP server
+2022-10-07T07:36:59.2213975+11:00:trying to connect to Out of Process Executor the 1 attempt
+2022-10-07T07:36:59.2214163+11:00:Connection to Out of Process Executor established in the 1 attempt
+2022-10-07T07:36:59.4302770+11:00:2022-10-07T07:36:59.4282707+11:00:OutOfProcessTestAssemblyExecutor: initialized for C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll on test thread #0
+2022-10-07T07:36:59.4363821+11:00:Endpoint 9520 started
+2022-10-07T07:36:59.4638756+11:00:2022-10-07T07:36:59.4628739+11:00:OutOfProcessTestAssemblyExecutor: running tests...
+2022-10-07T07:36:59.6018293+11:00:2022-10-07T07:36:59.6013354+11:00:Assembly resolving TechTalk.SpecFlow, Version=3.9.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2022-10-07T07:36:59.6050928+11:00:2022-10-07T07:36:59.6047439+11:00:[AssemblyCache] Trying to resolve 'TechTalk.SpecFlow' from .deps.json file
+2022-10-07T07:36:59.6078308+11:00:2022-10-07T07:36:59.6074938+11:00:[AssemblyCache] Resolved 'TechTalk.SpecFlow' to 'C:\Users\sowjy\.nuget\packages\specflow\3.9.8\lib\netstandard2.0\TechTalk.SpecFlow.dll'
+2022-10-07T07:36:59.7632231+11:00:2022-10-07T07:36:59.7608124+11:00:Thread#0:T:-> Loading plugin C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll
+2022-10-07T07:36:59.7701111+11:00:2022-10-07T07:36:59.7672835+11:00:Assembly resolving Microsoft.Extensions.DependencyModel, Version=1.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-07T07:36:59.7756264+11:00:2022-10-07T07:36:59.7734351+11:00:[AssemblyCache] Trying to resolve 'Microsoft.Extensions.DependencyModel' from .deps.json file
+2022-10-07T07:36:59.7799918+11:00:2022-10-07T07:36:59.7775304+11:00:[AssemblyCache] Resolved 'Microsoft.Extensions.DependencyModel' to 'C:\Users\sowjy\.nuget\packages\microsoft.extensions.dependencymodel\1.0.3\lib\netstandard1.6\Microsoft.Extensions.DependencyModel.dll'
+2022-10-07T07:36:59.8790739+11:00:2022-10-07T07:36:59.8773801+11:00:Assembly resolving Microsoft.DotNet.PlatformAbstractions, Version=1.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-07T07:36:59.8822037+11:00:2022-10-07T07:36:59.8806857+11:00:[AssemblyCache] Trying to resolve 'Microsoft.DotNet.PlatformAbstractions' from .deps.json file
+2022-10-07T07:36:59.8839401+11:00:2022-10-07T07:36:59.8832423+11:00:[AssemblyCache] Resolved 'Microsoft.DotNet.PlatformAbstractions' to 'C:\Users\sowjy\.nuget\packages\microsoft.dotnet.platformabstractions\1.0.3\lib\netstandard1.3\Microsoft.DotNet.PlatformAbstractions.dll'
+2022-10-07T07:36:59.9058662+11:00:2022-10-07T07:36:59.9051415+11:00:Assembly resolving nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb
+2022-10-07T07:36:59.9068638+11:00:2022-10-07T07:36:59.9063986+11:00:[AssemblyCache] Trying to resolve 'nunit.framework' from .deps.json file
+2022-10-07T07:36:59.9080167+11:00:2022-10-07T07:36:59.9076096+11:00:[AssemblyCache] Resolved 'nunit.framework' to 'C:\Users\sowjy\.nuget\packages\nunit\3.13.3\lib\netstandard2.0\nunit.framework.dll'
+2022-10-07T07:36:59.9130295+11:00:2022-10-07T07:36:59.9120426+11:00:Thread#0:T:-> Missing [assembly:RuntimePlugin] attribute in SeleniumDemoWithHooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null. Please check https://go.specflow.org/doc-plugins for details.
+2022-10-07T07:36:59.9142509+11:00:2022-10-07T07:36:59.9137085+11:00:Thread#0:T:-> Loading plugin C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\LivingDoc.SpecFlowPlugin.dll
+2022-10-07T07:36:59.9200972+11:00:2022-10-07T07:36:59.9193091+11:00:Assembly resolving LivingDoc.Dtos, Version=3.9.0.0, Culture=neutral, PublicKeyToken=null
+2022-10-07T07:36:59.9211319+11:00:2022-10-07T07:36:59.9206400+11:00:[AssemblyCache] Trying to resolve 'LivingDoc.Dtos' from .deps.json file
+2022-10-07T07:36:59.9225872+11:00:2022-10-07T07:36:59.9220337+11:00:[AssemblyCache] Resolved 'LivingDoc.Dtos' to 'C:\Users\sowjy\.nuget\packages\specflow.plus.livingdocplugin\3.9.57\lib\netstandard2.0\LivingDoc.Dtos.dll'
+2022-10-07T07:36:59.9269513+11:00:2022-10-07T07:36:59.9262015+11:00:Thread#0:T:-> Loading plugin C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecRun.Runtime.SpecFlowPlugin.dll
+2022-10-07T07:36:59.9462655+11:00:2022-10-07T07:36:59.9456061+11:00:Thread#0:T:-> Using default config
+2022-10-07T07:36:59.9688681+11:00:2022-10-07T07:36:59.9679529+11:00:Assembly resolving Cucumber.Messages, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b10c5988214f940c
+2022-10-07T07:36:59.9708271+11:00:2022-10-07T07:36:59.9694454+11:00:[AssemblyCache] Trying to resolve 'Cucumber.Messages' from .deps.json file
+2022-10-07T07:36:59.9727407+11:00:2022-10-07T07:36:59.9719678+11:00:[AssemblyCache] Resolved 'Cucumber.Messages' to 'C:\Users\sowjy\.nuget\packages\cucumber.messages\6.0.1\lib\netstandard2.0\Cucumber.Messages.dll'
+2022-10-07T07:36:59.9750565+11:00:2022-10-07T07:36:59.9744684+11:00:Assembly resolving Google.Protobuf, Version=3.7.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604
+2022-10-07T07:36:59.9760876+11:00:2022-10-07T07:36:59.9755713+11:00:[AssemblyCache] Trying to resolve 'Google.Protobuf' from .deps.json file
+2022-10-07T07:36:59.9775255+11:00:2022-10-07T07:36:59.9770012+11:00:[AssemblyCache] Resolved 'Google.Protobuf' to 'C:\Users\sowjy\.nuget\packages\google.protobuf\3.7.0\lib\netstandard1.0\Google.Protobuf.dll'
+2022-10-07T07:37:00.0000742+11:00:2022-10-07T07:36:59.9985572+11:00:Assembly resolving Microsoft.VisualStudio.TestPlatform.ObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-07T07:37:00.0016148+11:00:2022-10-07T07:37:00.0008708+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.TestPlatform.ObjectModel' from .deps.json file
+2022-10-07T07:37:00.0070588+11:00:2022-10-07T07:37:00.0041177+11:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.TestPlatform.ObjectModel' to 'C:\Users\sowjy\.nuget\packages\microsoft.testplatform.objectmodel\17.0.0\lib\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll'
+2022-10-07T07:37:00.1097146+11:00:2022-10-07T07:37:00.1075032+11:00:Assembly resolving SpecFlow.Internal.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2022-10-07T07:37:00.1117823+11:00:2022-10-07T07:37:00.1108905+11:00:[AssemblyCache] Trying to resolve 'SpecFlow.Internal.Json' from .deps.json file
+2022-10-07T07:37:00.1150472+11:00:2022-10-07T07:37:00.1125145+11:00:[AssemblyCache] Resolved 'SpecFlow.Internal.Json' to 'C:\Users\sowjy\.nuget\packages\specflow.internal.json\1.0.8\lib\netstandard2.0\SpecFlow.Internal.Json.dll'
+2022-10-07T07:37:00.2078554+11:00:Thread#0: Test #4/0 is started on thread #0
+2022-10-07T07:37:00.2413972+11:00:2022-10-07T07:37:00.2409446+11:00:Assembly resolving WebDriver, Version=4.0.0.0, Culture=neutral, PublicKeyToken=null
+2022-10-07T07:37:00.2419257+11:00:2022-10-07T07:37:00.2416940+11:00:[AssemblyCache] Trying to resolve 'WebDriver' from .deps.json file
+2022-10-07T07:37:00.2426209+11:00:2022-10-07T07:37:00.2423497+11:00:[AssemblyCache] Resolved 'WebDriver' to 'C:\Users\sowjy\.nuget\packages\selenium.webdriver\4.5.0\lib\netstandard2.1\WebDriver.dll'
+2022-10-07T07:37:00.8284028+11:00:2022-10-07T07:37:00.8263843+11:00:Assembly resolving Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed
+2022-10-07T07:37:00.8307863+11:00:2022-10-07T07:37:00.8299198+11:00:[AssemblyCache] Trying to resolve 'Newtonsoft.Json' from .deps.json file
+2022-10-07T07:37:00.8342525+11:00:2022-10-07T07:37:00.8325524+11:00:[AssemblyCache] Resolved 'Newtonsoft.Json' to 'C:\Users\sowjy\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll'
+2022-10-07T07:37:10.2621526+11:00:2022-10-07T07:37:10.2576160+11:00:Thread#0:B:Given the Application open
+2022-10-07T07:37:10.3068222+11:00:2022-10-07T07:37:10.3040104+11:00:Thread#0:T:Application Available: Ttile = My Store
+2022-10-07T07:37:10.3209033+11:00:2022-10-07T07:37:10.3177273+11:00:Thread#0:T:done: HomeSteps.GivenTheApplicationOpen() (0.0s)
+2022-10-07T07:37:10.3290107+11:00:2022-10-07T07:37:10.3283230+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-07T07:37:10.3321959+11:00:2022-10-07T07:37:10.3316774+11:00:Assembly resolving nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb
+2022-10-07T07:37:10.3338892+11:00:2022-10-07T07:37:10.3333909+11:00:Thread#0:T:Verifying Sign In Link
+2022-10-07T07:37:10.4067925+11:00:2022-10-07T07:37:10.3990701+11:00:Thread#0:T:Verify Clicking Sign In Link
+2022-10-07T07:37:12.7501484+11:00:2022-10-07T07:37:12.7464933+11:00:Thread#0:T:done: HomeSteps.GivenClickOnSigninLinkFromHomePage() (2.4s)
+2022-10-07T07:37:12.7552452+11:00:2022-10-07T07:37:12.7526185+11:00:Thread#0:B:Then User Login Page should be displayed
+2022-10-07T07:37:12.7648960+11:00:2022-10-07T07:37:12.7638568+11:00:Thread#0:T:Login Page Available: Ttile = Login - My Store
+2022-10-07T07:37:22.8287095+11:00:2022-10-07T07:37:22.7778682+11:00:Thread#0:T:done: HomeSteps.ThenUserLoginPageShouldBeDisplayed() (10.0s)
+2022-10-07T07:37:22.8611715+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-07T07:37:22.8613557+11:00:Thread#:Scheduler: testitem #5 from normal test queue 
+2022-10-07T07:37:22.8613800+11:00:Thread#0:Scheduler: considering testitem #5 for thread 0
+2022-10-07T07:37:22.8616375+11:00:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-07T07:37:22.8616647+11:00:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2022-10-07T07:37:22.8616785+11:00:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2022-10-07T07:37:22.8616912+11:00:Thread#0:Scheduler: using testitem #5 for thread 0
+2022-10-07T07:37:22.8617805+11:00:Thread#0:Scheduler: Test #5 is scheduled for thread
+2022-10-07T07:37:22.8620154+11:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-10-07T07:37:23.2182367+11:00:Thread#0: Test #4/0 is finished on thread #0 as Succeeded within 23.0088598 seconds
+2022-10-07T07:37:23.2227851+11:00:Thread#0: Test #5/0 is started on thread #0
+2022-10-07T07:37:32.4622200+11:00:2022-10-07T07:37:32.4595819+11:00:Thread#0:B:Given the Application open
+2022-10-07T07:37:32.4882567+11:00:2022-10-07T07:37:32.4776521+11:00:Thread#0:T:Application Available: Ttile = My Store
+2022-10-07T07:37:32.4903342+11:00:2022-10-07T07:37:32.4896700+11:00:Thread#0:T:done: HomeSteps.GivenTheApplicationOpen() (0.0s)
+2022-10-07T07:37:32.5047529+11:00:2022-10-07T07:37:32.4913219+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-07T07:37:32.5115040+11:00:2022-10-07T07:37:32.5061324+11:00:Thread#0:T:Verifying Sign In Link
+2022-10-07T07:37:32.5509298+11:00:2022-10-07T07:37:32.5501503+11:00:Thread#0:T:Verify Clicking Sign In Link
+2022-10-07T07:37:36.0555198+11:00:2022-10-07T07:37:36.0525894+11:00:Thread#0:T:done: HomeSteps.GivenClickOnSigninLinkFromHomePage() (3.5s)
+2022-10-07T07:37:36.0837321+11:00:2022-10-07T07:37:36.0614765+11:00:Thread#0:B:Then User Login Page should be displayed
+2022-10-07T07:37:36.0939422+11:00:2022-10-07T07:37:36.0925237+11:00:Thread#0:T:Login Page Available: Ttile = Login - My Store
+2022-10-07T07:37:46.1020666+11:00:2022-10-07T07:37:46.0994290+11:00:Thread#0:T:done: HomeSteps.ThenUserLoginPageShouldBeDisplayed() (10.0s)
+2022-10-07T07:37:46.1069126+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-07T07:37:46.1070546+11:00:Thread#:Scheduler: testitem #7 from normal test queue 
+2022-10-07T07:37:46.1071383+11:00:Thread#0:Scheduler: considering testitem #7 for thread 0
+2022-10-07T07:37:46.1073827+11:00:Thread#0:TestItem#7:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-07T07:37:46.1074119+11:00:Thread#0:TestItem#7:runsOnOneOtherThreadSpecific:False
+2022-10-07T07:37:46.1074357+11:00:Thread#0:TestItem#7:runsOnOneOtherThreadUnspecific:False
+2022-10-07T07:37:46.1074676+11:00:Thread#0:Scheduler: using testitem #7 for thread 0
+2022-10-07T07:37:46.1076019+11:00:Thread#0:Scheduler: Test #7 is scheduled for thread
+2022-10-07T07:37:46.1078177+11:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-10-07T07:37:46.4464729+11:00:Thread#0: Test #5/0 is finished on thread #0 as Succeeded within 23.2234434 seconds
+2022-10-07T07:37:46.4536875+11:00:Thread#0: Test #7/0 is started on thread #0
+2022-10-07T07:37:55.5900079+11:00:2022-10-07T07:37:55.5885263+11:00:Thread#0:B:Given the Application open
+2022-10-07T07:37:55.6000224+11:00:2022-10-07T07:37:55.5986968+11:00:Thread#0:T:Application Available: Ttile = My Store
+2022-10-07T07:37:55.6009847+11:00:2022-10-07T07:37:55.6006741+11:00:Thread#0:T:done: HomeSteps.GivenTheApplicationOpen() (0.0s)
+2022-10-07T07:37:55.6031380+11:00:2022-10-07T07:37:55.6027387+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-07T07:37:55.6038710+11:00:2022-10-07T07:37:55.6036144+11:00:Thread#0:T:Verifying Sign In Link
+2022-10-07T07:37:55.6537696+11:00:2022-10-07T07:37:55.6534485+11:00:Thread#0:T:Verify Clicking Sign In Link
+2022-10-07T07:37:58.6229262+11:00:2022-10-07T07:37:58.6222652+11:00:Thread#0:T:done: HomeSteps.GivenClickOnSigninLinkFromHomePage() (3.0s)
+2022-10-07T07:37:58.6335542+11:00:2022-10-07T07:37:58.6318604+11:00:Thread#0:B:And I enter user Credentials as
+2022-10-07T07:37:58.6344589+11:00:2022-10-07T07:37:58.6342136+11:00:Thread#0:B:  --- table step argument ---
+2022-10-07T07:37:58.6348126+11:00:2022-10-07T07:37:58.6346257+11:00:Thread#0:B:  | username               | password     |
+2022-10-07T07:37:58.6351236+11:00:2022-10-07T07:37:58.6349600+11:00:Thread#0:B:  | parida2021uk@gmail.com | Password@123 |
+2022-10-07T07:37:58.6398335+11:00:2022-10-07T07:37:58.6395417+11:00:Assembly resolving SpecFlow.Assist.Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2022-10-07T07:37:58.6402774+11:00:2022-10-07T07:37:58.6400792+11:00:[AssemblyCache] Trying to resolve 'SpecFlow.Assist.Dynamic' from .deps.json file
+2022-10-07T07:37:58.6411352+11:00:2022-10-07T07:37:58.6408933+11:00:[AssemblyCache] Resolved 'SpecFlow.Assist.Dynamic' to 'C:\Users\sowjy\.nuget\packages\specflow.assist.dynamic\1.4.2\lib\netstandard2.0\SpecFlow.Assist.Dynamic.dll'
+2022-10-07T07:37:58.7549122+11:00:2022-10-07T07:37:58.7545411+11:00:Assembly resolving Microsoft.CSharp.resources, Version=4.0.5.0, Culture=en-GB, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-07T07:37:58.7553401+11:00:2022-10-07T07:37:58.7551421+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' from .deps.json file
+2022-10-07T07:37:58.7557272+11:00:2022-10-07T07:37:58.7555405+11:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' from .deps.json
+2022-10-07T07:37:58.7577706+11:00:2022-10-07T07:37:58.7575026+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-07T07:37:58.7611086+11:00:2022-10-07T07:37:58.7607982+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.CSharp.resources.dll'
+2022-10-07T07:37:58.7616537+11:00:2022-10-07T07:37:58.7614522+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.CSharp.resources.exe'
+2022-10-07T07:37:58.7620631+11:00:2022-10-07T07:37:58.7618800+11:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-07T07:37:58.7629405+11:00:2022-10-07T07:37:58.7625465+11:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-10-07T07:37:58.7697143+11:00:2022-10-07T07:37:58.7637046+11:00:Tfm: netcoreapp3.1
+2022-10-07T07:37:58.7702285+11:00:2022-10-07T07:37:58.7699685+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-07T07:37:58.7705628+11:00:2022-10-07T07:37:58.7703856+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.CSharp.resources.dll'
+2022-10-07T07:37:58.7710275+11:00:2022-10-07T07:37:58.7708239+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.CSharp.resources.exe'
+2022-10-07T07:37:58.7714749+11:00:2022-10-07T07:37:58.7712875+11:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-07T07:37:58.7798044+11:00:2022-10-07T07:37:58.7794861+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29'
+2022-10-07T07:37:58.7801607+11:00:2022-10-07T07:37:58.7799928+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29\Microsoft.CSharp.resources.dll'
+2022-10-07T07:37:58.7835435+11:00:2022-10-07T07:37:58.7816814+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29\Microsoft.CSharp.resources.exe'
+2022-10-07T07:37:58.7848385+11:00:2022-10-07T07:37:58.7845002+11:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29'
+2022-10-07T07:37:58.7860814+11:00:2022-10-07T07:37:58.7856478+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29'
+2022-10-07T07:37:58.7865308+11:00:2022-10-07T07:37:58.7862978+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29\Microsoft.CSharp.resources.dll'
+2022-10-07T07:37:58.7871039+11:00:2022-10-07T07:37:58.7868496+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29\Microsoft.CSharp.resources.exe'
+2022-10-07T07:37:58.7876266+11:00:2022-10-07T07:37:58.7874045+11:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29'
+2022-10-07T07:37:58.7887376+11:00:2022-10-07T07:37:58.7882184+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29'
+2022-10-07T07:37:58.7899183+11:00:2022-10-07T07:37:58.7891272+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29\Microsoft.CSharp.resources.dll'
+2022-10-07T07:37:58.7906450+11:00:2022-10-07T07:37:58.7903459+11:00:[AssemblyCache] Trying to resolve 'Microsoft.CSharp.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29\Microsoft.CSharp.resources.exe'
+2022-10-07T07:37:58.7912318+11:00:2022-10-07T07:37:58.7909645+11:00:[AssemblyCache] Could not resolve 'Microsoft.CSharp.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29'
+2022-10-07T07:37:58.7935005+11:00:2022-10-07T07:37:58.7931351+11:00:Assembly resolving Microsoft.CSharp.resources, Version=4.0.5.0, Culture=en, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-07T07:37:59.1537590+11:00:2022-10-07T07:37:59.1531386+11:00:Thread#0:T:done: LoginSteps.WhenIEnterUserCredentialsAs(<table>) (0.5s)
+2022-10-07T07:37:59.1556226+11:00:2022-10-07T07:37:59.1551377+11:00:Thread#0:B:And I click on Login Button
+2022-10-07T07:38:01.3021604+11:00:2022-10-07T07:38:01.2966282+11:00:Thread#0:T:done: LoginSteps.WhenIClickOnLoginButton() (2.1s)
+2022-10-07T07:38:01.3042702+11:00:2022-10-07T07:38:01.3036174+11:00:Thread#0:B:Then the User should be logged in successfully
+2022-10-07T07:38:01.3068087+11:00:2022-10-07T07:38:01.3065026+11:00:Thread#0:T:Verifying Sign Out Link
+2022-10-07T07:38:01.3573350+11:00:2022-10-07T07:38:01.3567679+11:00:Thread#0:T:Verify Clicking Sign Out Link
+2022-10-07T07:38:04.4396648+11:00:2022-10-07T07:38:04.4318042+11:00:Thread#0:T:done: LoginSteps.ThenTheUserShouldBeLoggedInSuccessfully() (3.1s)
+2022-10-07T07:38:04.4531355+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-07T07:38:04.4531876+11:00:Thread#:Scheduler: at the end of normal test queue
+2022-10-07T07:38:04.4531964+11:00:Thread#0:Scheduler: enumerator for thread is at end
+2022-10-07T07:38:04.4532021+11:00:Thread#0:Scheduler: No more tests for thread
+2022-10-07T07:38:04.6541221+11:00:Thread#0: Test #7/0 is finished on thread #0 as Succeeded within 18.2001613 seconds
+2022-10-07T07:38:04.6680359+11:00:2022-10-07T07:38:04.6675310+11:00:Got Deinitialize Signal
+2022-10-07T07:38:04.6743493+11:00:RPC Client disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Stream has been disposed
+Exception:<none>
+2022-10-07T07:38:04.6777064+11:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Reached end of stream.
+Exception:<none>
+2022-10-07T07:38:04.6781161+11:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Stream has been disposed
+Exception:<none>
+2022-10-07T07:38:04.6834015+11:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.2.0, Culture=en-US, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-07T07:38:04.6834377+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' from .deps.json file
+2022-10-07T07:38:04.6834517+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' from .deps.json
+2022-10-07T07:38:04.6834650+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-07T07:38:04.6834689+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\System.Diagnostics.Process.resources.dll'
+2022-10-07T07:38:04.6835368+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\System.Diagnostics.Process.resources.exe'
+2022-10-07T07:38:04.6835906+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-07T07:38:04.6836012+11:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-10-07T07:38:04.6837724+11:00:Tfm: netcoreapp3.1
+2022-10-07T07:38:04.6837812+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-07T07:38:04.6837840+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Diagnostics.Process.resources.dll'
+2022-10-07T07:38:04.6838631+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Diagnostics.Process.resources.exe'
+2022-10-07T07:38:04.6840392+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-07T07:38:04.6941031+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29'
+2022-10-07T07:38:04.6941156+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29\System.Diagnostics.Process.resources.dll'
+2022-10-07T07:38:04.6942144+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29\System.Diagnostics.Process.resources.exe'
+2022-10-07T07:38:04.6942768+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.29'
+2022-10-07T07:38:04.6945773+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29'
+2022-10-07T07:38:04.6945828+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29\System.Diagnostics.Process.resources.dll'
+2022-10-07T07:38:04.6946458+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29\System.Diagnostics.Process.resources.exe'
+2022-10-07T07:38:04.6946971+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.29'
+2022-10-07T07:38:04.6948852+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29'
+2022-10-07T07:38:04.6948898+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29\System.Diagnostics.Process.resources.dll'
+2022-10-07T07:38:04.6949562+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29\System.Diagnostics.Process.resources.exe'
+2022-10-07T07:38:04.6950082+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.29'
+2022-10-07T07:38:04.6962819+11:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.2.0, Culture=en, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-07T07:38:04.7140701+11:00:Thread#-1:Scheduler: get next test for thread -1
+2022-10-07T07:38:04.7141160+11:00:Thread#:Scheduler: at the end of normal test queue
+2022-10-07T07:38:04.7141214+11:00:Thread#-1:Scheduler: enumerator for thread is at end
+2022-10-07T07:38:04.7271074+11:00;Thread#13;Info;test run finished
+2022-10-07T07:38:04.7275152+11:00;Thread#13;Info;publishing test results
+2022-10-07T07:38:04.7278829+11:00;Thread#13;Info;Not publishing results.
+2022-10-07T07:38:04.7281328+11:00;Thread#13;Info;test results published
+2022-10-07T07:38:04.7283629+11:00;Thread#13;Info;generating reports
+2022-10-07T07:38:04.8695037+11:00;Thread#13;Info;Starting external report generation process
+2022-10-07T07:38:07.1592648+11:00;Thread#13;Info;Successfully generated reports.
+2022-10-07T07:38:07.1612599+11:00;Thread#13;Info;Successfully generated reports
+2022-10-07T07:38:07.1691381+11:00:Total: 3
+2022-10-07T07:38:07.1711111+11:00:Succeeded: 3
+2022-10-07T07:38:07.1714192+11:00:Ignored: 0
+2022-10-07T07:38:07.1716911+11:00:Pending: 0
+2022-10-07T07:38:07.1716996+11:00:Skipped: 0
+2022-10-07T07:38:07.1719452+11:00:Failed: 0
+2022-10-07T07:38:07.1771168+11:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2022-10-07T07:38:07.1773615+11:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\sowjy\source\ELMO\SpecFlowProject1\TestResults\Unnamed project__2022-10-07T073656.html'
+========== End of log file ==========
