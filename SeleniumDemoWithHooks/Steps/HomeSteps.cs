@@ -14,27 +14,29 @@ namespace SeleniumDemoWithHooks.Steps
     [Binding]
     public class HomeSteps
     {
-        private readonly DriverHelper _driver;
+        IWebDriver _driver;
+        HomePage hm;
+        private const string baseUrl = "http://automationpractice.com/index.php";
+        ScenarioContext _scenarioContext;
 
-        private readonly HomePage hm;
-      
-        public HomeSteps(DriverHelper driver)
+        public HomeSteps(ScenarioContext scenarioContext) => _scenarioContext = scenarioContext;
+
+
+        [Given(@"the Application as")]
+        public void GivenTheApplicationAs(Table table)
         {
-            _driver = driver;
-            hm = new HomePage(_driver.Driver);
-
-        }
-
-        [Given(@"the Application open")]
-        public void GivenTheApplicationOpen()
-        {
-            string pageTitle= _driver.Driver.Title;
-            Console.WriteLine("Application Available: Ttile = "+ pageTitle);
+            dynamic data = table.CreateDynamicInstance();
+            _driver = _scenarioContext.Get<WebDriverHelper>("SeleniumDriver").SetUpDriver((string)data.Browser);
+            _driver.Url = baseUrl;
+            string pageTitle = _driver.Title;
+            Console.WriteLine("Application Available: Ttile = " + pageTitle);
         }
 
         [When(@"Click on Signin link from HomePage")]
         public void GivenClickOnSigninLinkFromHomePage()
         {
+            hm = new HomePage(_driver);
+
             Console.WriteLine("Verifying Sign In Link");
             Assert.That(hm.IsExistSingInLink(), Is.True);
 
@@ -45,9 +47,9 @@ namespace SeleniumDemoWithHooks.Steps
         [Then(@"User Login Page should be displayed")]
         public void ThenUserLoginPageShouldBeDisplayed()
         {
-            string loginPageTitle = _driver.Driver.Title;
+            string loginPageTitle = _driver.Title;
             Console.WriteLine("Login Page Available: Ttile = " + loginPageTitle);
-            Thread.Sleep(10000); 
+            Thread.Sleep(10000);
         }
 
     }

@@ -1,5 +1,8 @@
-﻿using NUnit.Framework;
+﻿using BoDi;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using SeleniumDemoWithHooks.Drivers;
 using System;
 using System.Collections.Generic;
@@ -11,30 +14,25 @@ using TechTalk.SpecFlow;
 namespace SeleniumDemoWithHooks.Hooks
 {
     [Binding]
-    public sealed class Hooks
+    public class Hooks
     {
-        private const string baseUrl = "http://automationpractice.com/index.php";
-        private readonly DriverHelper _driverHelper;
 
-       public Hooks(DriverHelper dr) => _driverHelper = dr;
+        ScenarioContext _scenarioContext;
+        public Hooks(ScenarioContext scenarioContext) => _scenarioContext = scenarioContext;
 
-    
 
         [BeforeScenario]
         public void BeforeScenario()
-        {            
-            ChromeOptions option = new ChromeOptions();
-            option.AddArgument("start-maximized");
-            //option.AddArgument("--headless");
-            string pathChrome = @"C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\WebDriver\";
-            _driverHelper.Driver = new ChromeDriver(pathChrome, option);   
-            _driverHelper.Driver.Navigate().GoToUrl(baseUrl);
+        {
+            WebDriverHelper _helper = new WebDriverHelper(_scenarioContext);
+            _scenarioContext.Set(_helper, "SeleniumDriver");
+
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            _driverHelper.Driver.Close();
+            _scenarioContext.Get<IWebDriver>("WebDriver").Quit();
         }
     }
 }

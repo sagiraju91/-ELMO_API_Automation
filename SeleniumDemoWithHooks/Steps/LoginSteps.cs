@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using SeleniumDemoWithHooks.Drivers;
 using SeleniumDemoWithHooks.Pages;
 using System;
+using System.Threading;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -11,22 +12,29 @@ namespace SeleniumDemoWithHooks.Steps
     [Binding]
     public class LoginSteps
     {
-        private readonly DriverHelper _driverHelper;
+        IWebDriver _driver;
+        HomePage hm;
+        LoginPage lp;
+        private const string baseUrl = "http://automationpractice.com/index.php";
+        ScenarioContext _scenarioContext;
 
-        //private readonly Homepage hm;
-        private readonly LoginPage lp;
+        public LoginSteps(ScenarioContext scenarioContext) => _scenarioContext = scenarioContext;
 
-
-        public LoginSteps(DriverHelper driver)
+        [Given(@"the Application open")]
+        public void GivenTheApplicationOpen()
         {
-            _driverHelper = driver;
-        //    hm = new Homepage(_driverHelper.Driver);
-            lp = new LoginPage(_driverHelper.Driver);
+            _driver = _scenarioContext.Get<WebDriverHelper>("SeleniumDriver").SetUpDriver("chrome");
+            _driver.Url = baseUrl;
+            Thread.Sleep(10000);
+            hm = new HomePage(_driver);
+            hm.ClickSingInLink();
         }
+
 
         [When(@"I enter user Credentials as")]
         public void WhenIEnterUserCredentialsAs(Table table)
         {
+            lp = new LoginPage(_driver);
             dynamic data = table.CreateDynamicInstance();
             lp.EnterUserName(data.username);
             lp.EnterUserPassword(data.password);

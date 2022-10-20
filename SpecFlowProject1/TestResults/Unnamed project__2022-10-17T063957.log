@@ -1,0 +1,297 @@
+﻿2022-10-17T06:39:57.1622288+11:00;VSTestExecutionThread;Info;SpecFlow+Runner execution started
+2022-10-17T06:39:57.1625617+11:00;VSTestExecutionThread;Info;SpecFlow+Runner 3.9.7 in Framework netcore31 in x64 mode execution started
+2022-10-17T06:39:57.1625692+11:00;VSTestExecutionThread;Info;TestAdapter Location: C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\TechTalk.SpecRun.VisualStudio.TestAdapter.dll
+2022-10-17T06:39:57.1649104+11:00;VSTestExecutionThread;Info;Current UserName: 'sowjy', MachineName: 'DESKTOP-QOIP40E'
+2022-10-17T06:39:57.2051342+11:00;VSTestExecutionThread;Info;SpecRun: running tests in C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll
+2022-10-17T06:39:57.2054388+11:00;VSTestExecutionThread;Info;Output folder configured to "C:\Users\sowjy\source\ELMO\SpecFlowProject1\TestResults" (default)
+2022-10-17T06:39:57.2058127+11:00;VSTestExecutionThread;Info;Profile: 
+2022-10-17T06:39:57.2938064+11:00;VSTestExecutionThread;Info;Log file path: C:\Users\sowjy\source\ELMO\SpecFlowProject1\TestResults\Unnamed project__2022-10-17T063957.log
+2022-10-17T06:39:57.3003139+11:00;Thread#12;Info;Checking activation
+2022-10-17T06:39:57.4275118+11:00;Thread#12;Info;Activated.
+2022-10-17T06:39:57.4277273+11:00;Thread#12;Info;Activation check completed
+2022-10-17T06:39:57.4278200+11:00;Thread#12;Info;Starting test run
+2022-10-17T06:39:57.5203627+11:00;Thread#12;Info;Discovering target: Default
+2022-10-17T06:39:57.5240276+11:00;Thread#12;Info;Discovering tests from assembly: C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll
+2022-10-17T06:39:57.6831131+11:00;Thread#12;Info;Discovered tests from assembly: C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll
+2022-10-17T06:39:57.6897565+11:00:Test Suite Dump
+2022-10-17T06:39:57.6932256+11:00:#0: Unnamed project/ - 
+2022-10-17T06:39:57.6932767+11:00:#1: Default - 
+2022-10-17T06:39:57.6932845+11:00:#2: SeleniumDemoWithHooks - 
+2022-10-17T06:39:57.6932890+11:00:#3: Home Page - 
+2022-10-17T06:39:57.6932934+11:00:#6: Login Test - 
+2022-10-17T06:39:57.6961830+11:00:#4: User Home Page Login Link1 - TestAssembly:SeleniumDemoWithHooks/Feature:Home+Page/Scenario:User+Home+Page+Login+Link1
+2022-10-17T06:39:57.6963110+11:00:#5: User Home Page Login Link2 - TestAssembly:SeleniumDemoWithHooks/Feature:Home+Page/Scenario:User+Home+Page+Login+Link2
+2022-10-17T06:39:57.6963490+11:00:#7: Login with vaid UserCredentials - TestAssembly:SeleniumDemoWithHooks/Feature:Login+Test/Scenario:Login+with+vaid+UserCredentials
+2022-10-17T06:39:57.6964184+11:00:End: Test Suite Dump
+2022-10-17T06:39:57.7166436+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-17T06:39:57.7209709+11:00:Thread#:Scheduler: testitem #4 from normal test queue 
+2022-10-17T06:39:57.7211510+11:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2022-10-17T06:39:57.7554916+11:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-17T06:39:57.7555122+11:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2022-10-17T06:39:57.7555160+11:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2022-10-17T06:39:57.7555214+11:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2022-10-17T06:39:57.7564986+11:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2022-10-17T06:39:57.7576714+11:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-10-17T06:39:57.7633201+11:00:Thread #0: creating new test thread executor for SeleniumDemoWithHooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null (target: Default)
+2022-10-17T06:39:57.7697777+11:00:Thread #0: Creating test assembly executor for execution model OutProc
+2022-10-17T06:39:57.7700443+11:00:Thread #0: Creating test assembly executor for execution model OutProc
+2022-10-17T06:39:57.7745820+11:00:Thread #0: using TechTalk.SpecRun.Framework.Execution.OutOfProc.StreamJsonRPC.OutOfProcessTestAssemblyExecutorHost to execute tests
+2022-10-17T06:39:57.7775617+11:00:starting Out Of Process Executor
+2022-10-17T06:39:57.7797978+11:00:Assembly resolving Microsoft.VisualStudio.Validation, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-17T06:39:57.7867357+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' from .deps.json file
+2022-10-17T06:39:57.7867809+11:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' from .deps.json
+2022-10-17T06:39:57.7891311+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-17T06:39:57.7897893+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2022-10-17T06:39:57.7899536+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Validation.exe'
+2022-10-17T06:39:57.7900292+11:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-17T06:39:57.7933740+11:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-10-17T06:39:57.7958198+11:00:Tfm: netcoreapp3.1
+2022-10-17T06:39:57.7958434+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-17T06:39:57.7958618+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Validation' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll'
+2022-10-17T06:39:57.7966828+11:00:[AssemblyCache] Found file 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll' for assembly 'Microsoft.VisualStudio.Validation'
+2022-10-17T06:39:57.7974715+11:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Validation' to C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Validation.dll
+2022-10-17T06:39:57.7984049+11:00:Starting callback TCP Rpc server
+2022-10-17T06:39:57.8379699+11:00:Asynchronously starting background TCP Rpc Server on port 32768
+2022-10-17T06:39:57.8380423+11:00:Started callback TCP Rpc server on port 32768
+2022-10-17T06:39:57.8380491+11:00:Starting logger TCP Rpc server
+2022-10-17T06:39:57.8408908+11:00:Asynchronously starting background TCP Rpc Server on port 32769
+2022-10-17T06:39:57.8409168+11:00:Started logger TCP Rpc server on port 32769
+2022-10-17T06:39:57.9781243+11:00:Executing test executor at 'dotnet' 'exec "C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\TechTalk.SpecRun.Framework.Executor.anycpu.netcoreapp3_1.dll" --remoteRunnerPid 12972 --uniqueId "2022-10-17T063957" --outputFolder "C:\Users\sowjy\source\ELMO\SpecFlowProject1\TestResults" --callbackPort 32768 --loggerPort 32769' in 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-17T06:39:57.9973524+11:00:Executor with PID 6316 has been started successfully.
+2022-10-17T06:39:58.0018422+11:00:Out of Process Executor 6316 started
+2022-10-17T06:39:58.0018588+11:00:Waiting for endpoint
+2022-10-17T06:39:58.5901160+11:00:Assembly resolving Microsoft.VisualStudio.Threading, Version=15.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-17T06:39:58.5901575+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' from .deps.json file
+2022-10-17T06:39:58.5901666+11:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' from .deps.json
+2022-10-17T06:39:58.5901744+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-17T06:39:58.5901809+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2022-10-17T06:39:58.5902737+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Threading.exe'
+2022-10-17T06:39:58.5903628+11:00:[AssemblyCache] Could not resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-17T06:39:58.5903720+11:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-10-17T06:39:58.5904046+11:00:Tfm: netcoreapp3.1
+2022-10-17T06:39:58.5904123+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-17T06:39:58.5904158+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.Threading' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll'
+2022-10-17T06:39:58.5905207+11:00:[AssemblyCache] Found file 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll' for assembly 'Microsoft.VisualStudio.Threading'
+2022-10-17T06:39:58.5915123+11:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.Threading' to C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\Microsoft.VisualStudio.Threading.dll
+2022-10-17T06:40:00.1298875+11:00:Remote executor port received: 32770
+2022-10-17T06:40:00.1304636+11:00:Creating executor TCP client on port 32770
+2022-10-17T06:40:00.1310066+11:00:Created executor TCP client on port 32770
+2022-10-17T06:40:00.1310230+11:00:Connecting to remote executor TCP server
+2022-10-17T06:40:00.1327911+11:00:Connected remote executor TCP server
+2022-10-17T06:40:00.1331470+11:00:trying to connect to Out of Process Executor the 1 attempt
+2022-10-17T06:40:00.1331608+11:00:Connection to Out of Process Executor established in the 1 attempt
+2022-10-17T06:40:00.3099011+11:00:2022-10-17T06:40:00.3087540+11:00:OutOfProcessTestAssemblyExecutor: initialized for C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll on test thread #0
+2022-10-17T06:40:00.3142338+11:00:Endpoint 6316 started
+2022-10-17T06:40:00.3413836+11:00:2022-10-17T06:40:00.3402510+11:00:OutOfProcessTestAssemblyExecutor: running tests...
+2022-10-17T06:40:00.5091870+11:00:2022-10-17T06:40:00.5086394+11:00:Assembly resolving TechTalk.SpecFlow, Version=3.9.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2022-10-17T06:40:00.5143131+11:00:2022-10-17T06:40:00.5138354+11:00:[AssemblyCache] Trying to resolve 'TechTalk.SpecFlow' from .deps.json file
+2022-10-17T06:40:00.5195107+11:00:2022-10-17T06:40:00.5185625+11:00:[AssemblyCache] Resolved 'TechTalk.SpecFlow' to 'C:\Users\sowjy\.nuget\packages\specflow\3.9.8\lib\netstandard2.0\TechTalk.SpecFlow.dll'
+2022-10-17T06:40:00.7237346+11:00:2022-10-17T06:40:00.7189667+11:00:Thread#0:T:-> Loading plugin C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SeleniumDemoWithHooks.dll
+2022-10-17T06:40:00.7305061+11:00:2022-10-17T06:40:00.7272536+11:00:Assembly resolving Microsoft.Extensions.DependencyModel, Version=1.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-17T06:40:00.7362346+11:00:2022-10-17T06:40:00.7327155+11:00:[AssemblyCache] Trying to resolve 'Microsoft.Extensions.DependencyModel' from .deps.json file
+2022-10-17T06:40:00.7476046+11:00:2022-10-17T06:40:00.7437896+11:00:[AssemblyCache] Resolved 'Microsoft.Extensions.DependencyModel' to 'C:\Users\sowjy\.nuget\packages\microsoft.extensions.dependencymodel\1.0.3\lib\netstandard1.6\Microsoft.Extensions.DependencyModel.dll'
+2022-10-17T06:40:00.8376068+11:00:2022-10-17T06:40:00.8361125+11:00:Assembly resolving Microsoft.DotNet.PlatformAbstractions, Version=1.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-17T06:40:00.8389942+11:00:2022-10-17T06:40:00.8385242+11:00:[AssemblyCache] Trying to resolve 'Microsoft.DotNet.PlatformAbstractions' from .deps.json file
+2022-10-17T06:40:00.8401437+11:00:2022-10-17T06:40:00.8397312+11:00:[AssemblyCache] Resolved 'Microsoft.DotNet.PlatformAbstractions' to 'C:\Users\sowjy\.nuget\packages\microsoft.dotnet.platformabstractions\1.0.3\lib\netstandard1.3\Microsoft.DotNet.PlatformAbstractions.dll'
+2022-10-17T06:40:00.8536022+11:00:2022-10-17T06:40:00.8528942+11:00:Assembly resolving Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-17T06:40:00.8545622+11:00:2022-10-17T06:40:00.8540794+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.TestPlatform.TestFramework' from .deps.json file
+2022-10-17T06:40:00.8559549+11:00:2022-10-17T06:40:00.8554786+11:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.TestPlatform.TestFramework' to 'C:\Users\sowjy\.nuget\packages\mstest.testframework\2.2.10\lib\netstandard1.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll'
+2022-10-17T06:40:00.8580195+11:00:2022-10-17T06:40:00.8575574+11:00:Thread#0:T:-> Missing [assembly:RuntimePlugin] attribute in SeleniumDemoWithHooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null. Please check https://go.specflow.org/doc-plugins for details.
+2022-10-17T06:40:00.8589936+11:00:2022-10-17T06:40:00.8585544+11:00:Thread#0:T:-> Loading plugin C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\LivingDoc.SpecFlowPlugin.dll
+2022-10-17T06:40:00.8636924+11:00:2022-10-17T06:40:00.8627438+11:00:Assembly resolving LivingDoc.Dtos, Version=3.9.0.0, Culture=neutral, PublicKeyToken=null
+2022-10-17T06:40:00.8648906+11:00:2022-10-17T06:40:00.8643518+11:00:[AssemblyCache] Trying to resolve 'LivingDoc.Dtos' from .deps.json file
+2022-10-17T06:40:00.8662413+11:00:2022-10-17T06:40:00.8657711+11:00:[AssemblyCache] Resolved 'LivingDoc.Dtos' to 'C:\Users\sowjy\.nuget\packages\specflow.plus.livingdocplugin\3.9.57\lib\netstandard2.0\LivingDoc.Dtos.dll'
+2022-10-17T06:40:00.8737839+11:00:2022-10-17T06:40:00.8713460+11:00:Thread#0:T:-> Loading plugin C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecRun.Runtime.SpecFlowPlugin.dll
+2022-10-17T06:40:00.8892476+11:00:2022-10-17T06:40:00.8886794+11:00:Thread#0:T:-> Using default config
+2022-10-17T06:40:00.9090112+11:00:2022-10-17T06:40:00.9085068+11:00:Assembly resolving Cucumber.Messages, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b10c5988214f940c
+2022-10-17T06:40:00.9097452+11:00:2022-10-17T06:40:00.9094209+11:00:[AssemblyCache] Trying to resolve 'Cucumber.Messages' from .deps.json file
+2022-10-17T06:40:00.9107626+11:00:2022-10-17T06:40:00.9104227+11:00:[AssemblyCache] Resolved 'Cucumber.Messages' to 'C:\Users\sowjy\.nuget\packages\cucumber.messages\6.0.1\lib\netstandard2.0\Cucumber.Messages.dll'
+2022-10-17T06:40:00.9130800+11:00:2022-10-17T06:40:00.9125096+11:00:Assembly resolving Google.Protobuf, Version=3.7.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604
+2022-10-17T06:40:00.9139670+11:00:2022-10-17T06:40:00.9135478+11:00:[AssemblyCache] Trying to resolve 'Google.Protobuf' from .deps.json file
+2022-10-17T06:40:00.9149685+11:00:2022-10-17T06:40:00.9146296+11:00:[AssemblyCache] Resolved 'Google.Protobuf' to 'C:\Users\sowjy\.nuget\packages\google.protobuf\3.7.0\lib\netstandard1.0\Google.Protobuf.dll'
+2022-10-17T06:40:00.9303039+11:00:2022-10-17T06:40:00.9295819+11:00:Assembly resolving Microsoft.VisualStudio.TestPlatform.ObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-17T06:40:00.9314477+11:00:2022-10-17T06:40:00.9307952+11:00:[AssemblyCache] Trying to resolve 'Microsoft.VisualStudio.TestPlatform.ObjectModel' from .deps.json file
+2022-10-17T06:40:00.9335546+11:00:2022-10-17T06:40:00.9326666+11:00:[AssemblyCache] Resolved 'Microsoft.VisualStudio.TestPlatform.ObjectModel' to 'C:\Users\sowjy\.nuget\packages\microsoft.testplatform.objectmodel\17.0.0\lib\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll'
+2022-10-17T06:40:01.0174722+11:00:2022-10-17T06:40:01.0154955+11:00:Assembly resolving SpecFlow.Internal.Json, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41
+2022-10-17T06:40:01.0209324+11:00:2022-10-17T06:40:01.0192487+11:00:[AssemblyCache] Trying to resolve 'SpecFlow.Internal.Json' from .deps.json file
+2022-10-17T06:40:01.0270615+11:00:2022-10-17T06:40:01.0251658+11:00:[AssemblyCache] Resolved 'SpecFlow.Internal.Json' to 'C:\Users\sowjy\.nuget\packages\specflow.internal.json\1.0.8\lib\netstandard2.0\SpecFlow.Internal.Json.dll'
+2022-10-17T06:40:01.1557194+11:00:Thread#0: Test #4/0 is started on thread #0
+2022-10-17T06:40:01.2471584+11:00:2022-10-17T06:40:01.2464666+11:00:Thread#0:B:Given the Application open
+2022-10-17T06:40:01.2561614+11:00:2022-10-17T06:40:01.2558175+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.2599048+11:00:2022-10-17T06:40:01.2593640+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-17T06:40:01.2612744+11:00:2022-10-17T06:40:01.2608546+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.2623787+11:00:2022-10-17T06:40:01.2620322+11:00:Thread#0:B:Then User Login Page should be displayed
+2022-10-17T06:40:01.2663913+11:00:2022-10-17T06:40:01.2636453+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.2887087+11:00:Thread#0:TestItem#4:Scheduler: reschedule tests for testitem #4
+2022-10-17T06:40:01.2912110+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-17T06:40:01.2913389+11:00:Thread#:Scheduler: dequeuing a rescheduled testitem: #4
+2022-10-17T06:40:01.2913493+11:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2022-10-17T06:40:01.2914216+11:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-17T06:40:01.2916894+11:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2022-10-17T06:40:01.2916993+11:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2022-10-17T06:40:01.2917038+11:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2022-10-17T06:40:01.2917550+11:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2022-10-17T06:40:01.2918024+11:00:Thread#0:Scheduler: with testItemExecutionIndex 1
+2022-10-17T06:40:01.3716394+11:00:Thread#0: Test #4/0 is finished on thread #0 as Failed within 0.2148094 seconds
+2022-10-17T06:40:01.3738351+11:00:Thread#0: Test #4/1 is started on thread #0
+2022-10-17T06:40:01.3758206+11:00:2022-10-17T06:40:01.3755222+11:00:Thread#0:B:Given the Application open
+2022-10-17T06:40:01.3763275+11:00:2022-10-17T06:40:01.3761129+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.3768089+11:00:2022-10-17T06:40:01.3766219+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-17T06:40:01.3772524+11:00:2022-10-17T06:40:01.3770656+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.3777418+11:00:2022-10-17T06:40:01.3775470+11:00:Thread#0:B:Then User Login Page should be displayed
+2022-10-17T06:40:01.3781802+11:00:2022-10-17T06:40:01.3779990+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.3796199+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-17T06:40:01.3796442+11:00:Thread#:Scheduler: dequeuing a rescheduled testitem: #4
+2022-10-17T06:40:01.3796471+11:00:Thread#0:Scheduler: considering testitem #4 for thread 0
+2022-10-17T06:40:01.3796844+11:00:Thread#0:TestItem#4:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-17T06:40:01.3796878+11:00:Thread#0:TestItem#4:runsOnOneOtherThreadSpecific:False
+2022-10-17T06:40:01.3796897+11:00:Thread#0:TestItem#4:runsOnOneOtherThreadUnspecific:False
+2022-10-17T06:40:01.3796916+11:00:Thread#0:Scheduler: using testitem #4 for thread 0
+2022-10-17T06:40:01.3797005+11:00:Thread#0:Scheduler: Test #4 is scheduled for thread
+2022-10-17T06:40:01.3797066+11:00:Thread#0:Scheduler: with testItemExecutionIndex 2
+2022-10-17T06:40:01.3816323+11:00:Thread#0: Test #4/1 is finished on thread #0 as Failed within 0.007728 seconds
+2022-10-17T06:40:01.3821579+11:00:Thread#0: Test #4/2 is started on thread #0
+2022-10-17T06:40:01.3852348+11:00:2022-10-17T06:40:01.3848086+11:00:Thread#0:B:Given the Application open
+2022-10-17T06:40:01.3864597+11:00:2022-10-17T06:40:01.3857549+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.3870844+11:00:2022-10-17T06:40:01.3868426+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-17T06:40:01.3875376+11:00:2022-10-17T06:40:01.3873584+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.3879490+11:00:2022-10-17T06:40:01.3877683+11:00:Thread#0:B:Then User Login Page should be displayed
+2022-10-17T06:40:01.3883391+11:00:2022-10-17T06:40:01.3881831+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.3893142+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-17T06:40:01.3893320+11:00:Thread#:Scheduler: testitem #5 from normal test queue 
+2022-10-17T06:40:01.3893400+11:00:Thread#0:Scheduler: considering testitem #5 for thread 0
+2022-10-17T06:40:01.3893655+11:00:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-17T06:40:01.3893706+11:00:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2022-10-17T06:40:01.3893760+11:00:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2022-10-17T06:40:01.3893817+11:00:Thread#0:Scheduler: using testitem #5 for thread 0
+2022-10-17T06:40:01.3893962+11:00:Thread#0:Scheduler: Test #5 is scheduled for thread
+2022-10-17T06:40:01.3894249+11:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-10-17T06:40:01.3909937+11:00:Thread#0: Test #4/2 is finished on thread #0 as Failed within 0.0087928 seconds
+2022-10-17T06:40:01.3914710+11:00:Thread#0: Test #5/0 is started on thread #0
+2022-10-17T06:40:01.3928225+11:00:2022-10-17T06:40:01.3923490+11:00:Thread#0:T:warning: The previous FeatureContext was not disposed.
+2022-10-17T06:40:01.3948965+11:00:2022-10-17T06:40:01.3946099+11:00:Thread#0:B:Given the Application open
+2022-10-17T06:40:01.3954086+11:00:2022-10-17T06:40:01.3951649+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.3958940+11:00:2022-10-17T06:40:01.3956816+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-17T06:40:01.3963728+11:00:2022-10-17T06:40:01.3961712+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.3968274+11:00:2022-10-17T06:40:01.3966142+11:00:Thread#0:B:Then User Login Page should be displayed
+2022-10-17T06:40:01.3972682+11:00:2022-10-17T06:40:01.3970633+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.3980268+11:00:Thread#0:TestItem#5:Scheduler: reschedule tests for testitem #5
+2022-10-17T06:40:01.3983776+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-17T06:40:01.3983924+11:00:Thread#:Scheduler: dequeuing a rescheduled testitem: #5
+2022-10-17T06:40:01.3984003+11:00:Thread#0:Scheduler: considering testitem #5 for thread 0
+2022-10-17T06:40:01.3984249+11:00:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-17T06:40:01.3984297+11:00:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2022-10-17T06:40:01.3984357+11:00:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2022-10-17T06:40:01.3984414+11:00:Thread#0:Scheduler: using testitem #5 for thread 0
+2022-10-17T06:40:01.3984569+11:00:Thread#0:Scheduler: Test #5 is scheduled for thread
+2022-10-17T06:40:01.3984700+11:00:Thread#0:Scheduler: with testItemExecutionIndex 1
+2022-10-17T06:40:01.4003713+11:00:Thread#0: Test #5/0 is finished on thread #0 as Failed within 0.0088745 seconds
+2022-10-17T06:40:01.4008981+11:00:Thread#0: Test #5/1 is started on thread #0
+2022-10-17T06:40:01.4040820+11:00:2022-10-17T06:40:01.4034219+11:00:Thread#0:B:Given the Application open
+2022-10-17T06:40:01.4051967+11:00:2022-10-17T06:40:01.4049062+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4056836+11:00:2022-10-17T06:40:01.4054618+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-17T06:40:01.4061214+11:00:2022-10-17T06:40:01.4059298+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4065020+11:00:2022-10-17T06:40:01.4063374+11:00:Thread#0:B:Then User Login Page should be displayed
+2022-10-17T06:40:01.4069020+11:00:2022-10-17T06:40:01.4067100+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4078563+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-17T06:40:01.4078692+11:00:Thread#:Scheduler: dequeuing a rescheduled testitem: #5
+2022-10-17T06:40:01.4078722+11:00:Thread#0:Scheduler: considering testitem #5 for thread 0
+2022-10-17T06:40:01.4078887+11:00:Thread#0:TestItem#5:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-17T06:40:01.4078915+11:00:Thread#0:TestItem#5:runsOnOneOtherThreadSpecific:False
+2022-10-17T06:40:01.4078942+11:00:Thread#0:TestItem#5:runsOnOneOtherThreadUnspecific:False
+2022-10-17T06:40:01.4078963+11:00:Thread#0:Scheduler: using testitem #5 for thread 0
+2022-10-17T06:40:01.4079058+11:00:Thread#0:Scheduler: Test #5 is scheduled for thread
+2022-10-17T06:40:01.4079130+11:00:Thread#0:Scheduler: with testItemExecutionIndex 2
+2022-10-17T06:40:01.4094915+11:00:Thread#0: Test #5/1 is finished on thread #0 as Failed within 0.0085627 seconds
+2022-10-17T06:40:01.4099828+11:00:Thread#0: Test #5/2 is started on thread #0
+2022-10-17T06:40:01.4120207+11:00:2022-10-17T06:40:01.4111816+11:00:Thread#0:B:Given the Application open
+2022-10-17T06:40:01.4125887+11:00:2022-10-17T06:40:01.4123471+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4130894+11:00:2022-10-17T06:40:01.4129042+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-17T06:40:01.4134712+11:00:2022-10-17T06:40:01.4133116+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4138221+11:00:2022-10-17T06:40:01.4136726+11:00:Thread#0:B:Then User Login Page should be displayed
+2022-10-17T06:40:01.4142066+11:00:2022-10-17T06:40:01.4140527+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4151385+11:00:Thread#0:Scheduler: get next test for thread 0
+2022-10-17T06:40:01.4151523+11:00:Thread#:Scheduler: testitem #7 from normal test queue 
+2022-10-17T06:40:01.4151557+11:00:Thread#0:Scheduler: considering testitem #7 for thread 0
+2022-10-17T06:40:01.4151717+11:00:Thread#0:TestItem#7:testItemMatchesCurrentTestThread:UnSpecific
+2022-10-17T06:40:01.4151747+11:00:Thread#0:TestItem#7:runsOnOneOtherThreadSpecific:False
+2022-10-17T06:40:01.4151774+11:00:Thread#0:TestItem#7:runsOnOneOtherThreadUnspecific:False
+2022-10-17T06:40:01.4151796+11:00:Thread#0:Scheduler: using testitem #7 for thread 0
+2022-10-17T06:40:01.4151881+11:00:Thread#0:Scheduler: Test #7 is scheduled for thread
+2022-10-17T06:40:01.4151957+11:00:Thread#0:Scheduler: with testItemExecutionIndex 0
+2022-10-17T06:40:01.4177253+11:00:Thread#0: Test #5/2 is finished on thread #0 as Failed within 0.00771 seconds
+2022-10-17T06:40:01.4185994+11:00:Thread#0: Test #7/0 is started on thread #0
+2022-10-17T06:40:01.4218814+11:00:2022-10-17T06:40:01.4216114+11:00:Thread#0:B:Given the Application open
+2022-10-17T06:40:01.4223134+11:00:2022-10-17T06:40:01.4221360+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4227497+11:00:2022-10-17T06:40:01.4225711+11:00:Thread#0:B:When Click on Signin link from HomePage
+2022-10-17T06:40:01.4231794+11:00:2022-10-17T06:40:01.4229997+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4284265+11:00:2022-10-17T06:40:01.4282004+11:00:Thread#0:B:And I enter user Credentials as
+2022-10-17T06:40:01.4287654+11:00:2022-10-17T06:40:01.4286178+11:00:Thread#0:B:  --- table step argument ---
+2022-10-17T06:40:01.4291168+11:00:2022-10-17T06:40:01.4289386+11:00:Thread#0:B:  | username               | password     |
+2022-10-17T06:40:01.4294168+11:00:2022-10-17T06:40:01.4292573+11:00:Thread#0:B:  | parida2021uk@gmail.com | Password@123 |
+2022-10-17T06:40:01.4302217+11:00:2022-10-17T06:40:01.4300627+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4306554+11:00:2022-10-17T06:40:01.4304503+11:00:Thread#0:B:And I click on Login Button
+2022-10-17T06:40:01.4310695+11:00:2022-10-17T06:40:01.4308922+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4314608+11:00:2022-10-17T06:40:01.4312594+11:00:Thread#0:B:Then the User should be logged in successfully
+2022-10-17T06:40:01.4318620+11:00:2022-10-17T06:40:01.4316941+11:00:Thread#0:T:skipped because of previous errors
+2022-10-17T06:40:01.4330714+11:00:Cancelling because configured number of failures reached
+2022-10-17T06:40:01.4365374+11:00:Thread#0: Test #7/0 is finished on thread #0 as Failed within 0.0178966 seconds
+2022-10-17T06:40:01.4423845+11:00:2022-10-17T06:40:01.4421700+11:00:Got Deinitialize Signal
+2022-10-17T06:40:01.4459075+11:00:RPC Client disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Stream has been disposed
+Exception:<none>
+2022-10-17T06:40:01.4464236+11:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Reached end of stream.
+Exception:<none>
+2022-10-17T06:40:01.4477441+11:00:RPC Server disconnected, because 'Disposed'. 
+LastMessage: 
+Description:Reached end of stream.
+Exception:<none>
+2022-10-17T06:40:01.4505649+11:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.2.0, Culture=en-US, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-17T06:40:01.4505940+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' from .deps.json file
+2022-10-17T06:40:01.4506042+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' from .deps.json
+2022-10-17T06:40:01.4506129+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-17T06:40:01.4506183+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\System.Diagnostics.Process.resources.dll'
+2022-10-17T06:40:01.4506826+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\System.Diagnostics.Process.resources.exe'
+2022-10-17T06:40:01.4507358+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1'
+2022-10-17T06:40:01.4507486+11:00:TargetFramework: .NETCoreApp,Version=v3.1
+2022-10-17T06:40:01.4508181+11:00:Tfm: netcoreapp3.1
+2022-10-17T06:40:01.4508249+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-17T06:40:01.4508289+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Diagnostics.Process.resources.dll'
+2022-10-17T06:40:01.4508924+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1\System.Diagnostics.Process.resources.exe'
+2022-10-17T06:40:01.4509585+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Users\sowjy\source\ELMO\SeleniumDemoWithHooks\bin\Debug\netcoreapp3.1\SpecFlowPlusRunner\netcoreapp3.1'
+2022-10-17T06:40:01.4584988+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.30'
+2022-10-17T06:40:01.4585182+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.30\System.Diagnostics.Process.resources.dll'
+2022-10-17T06:40:01.4586106+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.30\System.Diagnostics.Process.resources.exe'
+2022-10-17T06:40:01.4586790+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App\3.1.30'
+2022-10-17T06:40:01.4589513+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.30'
+2022-10-17T06:40:01.4589625+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.30\System.Diagnostics.Process.resources.dll'
+2022-10-17T06:40:01.4590264+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.30\System.Diagnostics.Process.resources.exe'
+2022-10-17T06:40:01.4590796+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\3.1.30'
+2022-10-17T06:40:01.4592746+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.30'
+2022-10-17T06:40:01.4592850+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.30\System.Diagnostics.Process.resources.dll'
+2022-10-17T06:40:01.4593544+11:00:[AssemblyCache] Trying to resolve 'System.Diagnostics.Process.resources' to 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.30\System.Diagnostics.Process.resources.exe'
+2022-10-17T06:40:01.4594113+11:00:[AssemblyCache] Could not resolve 'System.Diagnostics.Process.resources' in folder 'C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\3.1.30'
+2022-10-17T06:40:01.4604499+11:00:Assembly resolving System.Diagnostics.Process.resources, Version=4.2.2.0, Culture=en, PublicKeyToken=b03f5f7f11d50a3a
+2022-10-17T06:40:01.4704242+11:00:Thread#-1:Scheduler: get next test for thread -1
+2022-10-17T06:40:01.4704586+11:00:Thread#:Scheduler: at the end of normal test queue
+2022-10-17T06:40:01.4705682+11:00:Thread#-1:Scheduler: enumerator for thread is at end
+2022-10-17T06:40:01.4812614+11:00;Thread#12;Info;test run finished
+2022-10-17T06:40:01.4821102+11:00;Thread#12;Info;publishing test results
+2022-10-17T06:40:01.4824819+11:00;Thread#12;Info;Not publishing results.
+2022-10-17T06:40:01.4828433+11:00;Thread#12;Info;test results published
+2022-10-17T06:40:01.4831277+11:00;Thread#12;Info;generating reports
+2022-10-17T06:40:01.5815003+11:00;Thread#12;Info;Starting external report generation process
+2022-10-17T06:40:03.7657236+11:00;Thread#12;Info;Successfully generated reports.
+2022-10-17T06:40:03.7698999+11:00;Thread#12;Info;Successfully generated reports
+2022-10-17T06:40:03.7782161+11:00:Total: 3 (test executions: 7)
+2022-10-17T06:40:03.7801226+11:00:Succeeded: 0
+2022-10-17T06:40:03.7805061+11:00:Ignored: 0
+2022-10-17T06:40:03.7808509+11:00:Pending: 0
+2022-10-17T06:40:03.7808620+11:00:Skipped: 0
+2022-10-17T06:40:03.7811068+11:00:Failed: 3
+2022-10-17T06:40:03.7879798+11:00;VSTestExecutionThread;Info;Adding attachments to VSTest
+2022-10-17T06:40:03.7883230+11:00;VSTestExecutionThread;Info;adding Test Execution Report 'C:\Users\sowjy\source\ELMO\SpecFlowProject1\TestResults\Unnamed project__2022-10-17T063957.html'
+========== End of log file ==========

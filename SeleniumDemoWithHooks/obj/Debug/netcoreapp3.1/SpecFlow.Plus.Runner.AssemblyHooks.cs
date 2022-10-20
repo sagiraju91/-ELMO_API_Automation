@@ -3,7 +3,7 @@
 using global::TechTalk.SpecFlow;
 using global::System.Runtime.CompilerServices;
 
-public class SeleniumDemoWithHooks_SpecFlowPlusRunnerAssemblyHooks
+public class SeleniumDemo_SpecFlowPlusRunnerAssemblyHooks
 {
     [global::TechTalk.SpecRun.AssemblyInitialize]
     [MethodImpl(MethodImplOptions.NoInlining)]

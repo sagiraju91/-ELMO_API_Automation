@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SeleniumDemoWithHooks.Features
+namespace SeleniumDemo.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -19,7 +19,8 @@ namespace SeleniumDemoWithHooks.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("Login Test", Description="\tTo verify User Login functionakity", SourceFile="Features\\Login.feature", SourceLine=0)]
+    [NUnit.Framework.TestFixtureAttribute()]
+    [NUnit.Framework.DescriptionAttribute("Login Test")]
     public partial class LoginTestFeature
     {
         
@@ -30,7 +31,7 @@ namespace SeleniumDemoWithHooks.Features
 #line 1 "Login.feature"
 #line hidden
         
-        [TechTalk.SpecRun.FeatureInitialize()]
+        [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
@@ -38,18 +39,19 @@ namespace SeleniumDemoWithHooks.Features
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [TechTalk.SpecRun.FeatureCleanup()]
+        [NUnit.Framework.OneTimeTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
+        [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
         
-        [TechTalk.SpecRun.ScenarioCleanup()]
+        [NUnit.Framework.TearDownAttribute()]
         public virtual void TestTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -58,6 +60,7 @@ namespace SeleniumDemoWithHooks.Features
         public virtual void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
+            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
         public virtual void ScenarioStart()
@@ -70,8 +73,9 @@ namespace SeleniumDemoWithHooks.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Login with vaid UserCredentials", new string[] {
-                "mytag"}, SourceLine=3)]
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Login with vaid UserCredentials")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void LoginWithVaidUserCredentials()
         {
             string[] tagsOfScenario = new string[] {
@@ -101,22 +105,19 @@ this.ScenarioInitialize(scenarioInfo);
 #line 5
  testRunner.Given("the Application open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 6
- testRunner.When("Click on Signin link from HomePage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                             "username",
                             "password"});
-                table1.AddRow(new string[] {
+                table2.AddRow(new string[] {
                             "parida2021uk@gmail.com",
                             "Password@123"});
-#line 7
- testRunner.And("I enter user Credentials as", ((string)(null)), table1, "And ");
+#line 6
+ testRunner.When("I enter user Credentials as", ((string)(null)), table2, "When ");
 #line hidden
-#line 10
+#line 9
  testRunner.And("I click on Login Button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 11
+#line 10
  testRunner.Then("the User should be logged in successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

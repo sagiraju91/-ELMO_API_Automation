@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\sowjy\\source\\ELMO\\SeleniumDemoWithHooks\\SeleniumDemoWithHooks.csproj",
-        "projectName": "SeleniumDemoWithHooks",
+        "projectName": "Selenium",
         "projectPath": "C:\\Users\\sowjy\\source\\ELMO\\SeleniumDemoWithHooks\\SeleniumDemoWithHooks.csproj",
         "packagesPath": "C:\\Users\\sowjy\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\sowjy\\source\\ELMO\\SeleniumDemoWithHooks\\obj\\",
@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[3.13.3, )"
             },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Selenium.WebDriver": {
               "target": "Package",
               "version": "[4.5.0, )"
@@ -60,13 +64,13 @@
               "target": "Package",
               "version": "[1.4.2, )"
             },
+            "SpecFlow.NUnit": {
+              "target": "Package",
+              "version": "[3.9.22, )"
+            },
             "SpecFlow.Plus.LivingDocPlugin": {
               "target": "Package",
               "version": "[3.9.57, )"
-            },
-            "SpecRun.SpecFlow": {
-              "target": "Package",
-              "version": "[3.9.7, )"
             }
           },
           "imports": [
