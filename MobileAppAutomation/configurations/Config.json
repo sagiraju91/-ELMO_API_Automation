@@ -1,0 +1,18 @@
+﻿{
+  "OS": "Android",
+  "OSVersion": "12",
+  "DeviceName": "Pixel 6 Pro",
+  "Browser": "chrome",
+  "AppName": "AndroidApp",
+  "Environment": "remote"
+}
+
+
+//{
+//  "OS": "iOS",
+//  "OSVersion": "13",
+//  "DeviceName": "iPhone 11 Pro",
+//  "Browser": "chrome",
+//  "AppName": "IOSApp",
+//  "Environment": "remote"
+//}

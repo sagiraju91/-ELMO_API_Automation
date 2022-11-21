@@ -16,17 +16,17 @@ namespace SeleniumDemoWithHooks.Steps
     {
         IWebDriver _driver;
         HomePage hm;
-        private const string baseUrl = "http://automationpractice.com/index.php";
+        private const string baseUrl = "https://demo.guru99.com/test/newtours/index.php";
         ScenarioContext _scenarioContext;
 
         public HomeSteps(ScenarioContext scenarioContext) => _scenarioContext = scenarioContext;
 
 
         [Given(@"the Application as")]
-        public void GivenTheApplicationAs(Table table)
+        public void GivenTheApplicationAs()
         {
-            dynamic data = table.CreateDynamicInstance();
-            _driver = _scenarioContext.Get<WebDriverHelper>("SeleniumDriver").SetUpDriver((string)data.Browser);
+           // dynamic data = table.CreateDynamicInstance();
+            _driver = _scenarioContext.Get<WebDriverHelper>("SeleniumDriver").SetUpDriver();
             _driver.Url = baseUrl;
             string pageTitle = _driver.Title;
             Console.WriteLine("Application Available: Ttile = " + pageTitle);
@@ -41,7 +41,7 @@ namespace SeleniumDemoWithHooks.Steps
             Assert.That(hm.IsExistSingInLink(), Is.True);
 
             Console.WriteLine("Verify Clicking Sign In Link");
-            hm.ClickSingInLink();
+            hm.ClickSingOnLink();
         }
 
         [Then(@"User Login Page should be displayed")]
@@ -49,7 +49,7 @@ namespace SeleniumDemoWithHooks.Steps
         {
             string loginPageTitle = _driver.Title;
             Console.WriteLine("Login Page Available: Ttile = " + loginPageTitle);
-            Thread.Sleep(10000);
+            Thread.Sleep(1000);
         }
 
     }

@@ -15,16 +15,16 @@ namespace SeleniumDemoWithHooks.Pages
 
 
         //Page Elements
-        IWebElement Lnk_SignIn => _driver.FindElement(By.LinkText("Sign in"));
+        IWebElement Lnk_SignOn => _driver.FindElement(By.LinkText("SIGN-ON"));
 
 
         //Page Actions
-        public void ClickSingInLink()
+        public void ClickSingOnLink()
         {
-            Lnk_SignIn.Click();
+            Lnk_SignOn.Click();
         }
 
-        public bool IsExistSingInLink() => Lnk_SignIn.Displayed;
+        public bool IsExistSingInLink() => Lnk_SignOn.Displayed;
 
     }
 }

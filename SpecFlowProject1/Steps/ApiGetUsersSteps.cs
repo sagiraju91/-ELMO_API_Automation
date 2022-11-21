@@ -40,7 +40,7 @@ namespace SpecFlowProject1.Steps
             Console.WriteLine("email : " + _data[0].email);
             Console.WriteLine("preferredname : " + _data[0].customData.preferredname);
 
-            string usernameExpected = "puma.api";
+            string usernameExpected = "mark.rhodes@rslqld.org";
             string usernameActual = _data[1].username;
 
             Console.WriteLine("2nd Set of Data : Actual username : " + usernameActual);

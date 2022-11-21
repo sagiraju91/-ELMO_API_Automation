@@ -14,10 +14,12 @@ namespace SeleniumDemoWithHooks.Pages
         }
 
         //Page Elements
-        IWebElement Txtbx_UserName => WebDriver.FindElement(By.Id("email"));
-        IWebElement Txtbx_UserPwd => WebDriver.FindElement(By.Id("passwd"));
-        IWebElement Btn_Login => WebDriver.FindElement(By.Id("SubmitLogin"));
-        IWebElement Lnk_Logout => WebDriver.FindElement(By.LinkText("Sign out"));
+        IWebElement Txtbx_UserName => WebDriver.FindElement(By.XPath("//input[@name='userName']"));
+        IWebElement Txtbx_UserPwd => WebDriver.FindElement(By.XPath("//input[@name='password']"));
+        IWebElement Btn_Login => WebDriver.FindElement(By.XPath("//input[@type='submit']"));
+        IWebElement Lnk_Logout => WebDriver.FindElement(By.LinkText("SIGN-OFF"));
+
+        IWebElement pop_up_CloseBtn => WebDriver.FindElement(By.XPath("//div[contains(@id,'dismiss-button')]"));
 
 
         //Page Actions
@@ -35,5 +37,16 @@ namespace SeleniumDemoWithHooks.Pages
         public bool IsExistLogout() => Lnk_Logout.Displayed;
 
         public void ClickLogOutLink() => Lnk_Logout.Click();
+
+        public void ClickOnPopup()
+        {
+            if (pop_up_CloseBtn.Displayed == true)
+            {
+                pop_up_CloseBtn.Click();
+            }
+
+        }
+
+
     }
 }

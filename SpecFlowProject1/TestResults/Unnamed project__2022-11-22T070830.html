@@ -1,0 +1,3591 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<title>Unnamed project Test Execution Report</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+        <script type="text/javascript">
+            /**
+            * jQuery.fn.sortElements
+            * --------------
+            * #author James Padolsey (http://james.padolsey.com)
+            * #version 0.11
+            * #updated 18-MAR-2010
+            * #url https://raw.github.com/jamespadolsey/jQuery-Plugins/master/sortElements/jquery.sortElements.js
+            * --------------
+            * #param Function comparator:
+            *   Exactly the same behaviour as [1,2,3].sort(comparator)
+            *   
+            * #param Function getSortable
+            *   A function that should return the element that is
+            *   to be sorted. The comparator will run on the
+            *   current collection, but you may want the actual
+            *   resulting sort to occur on a parent or another
+            *   associated element.
+            *   
+            *   E.g. $('td').sortElements(comparator, function(){
+            *      return this.parentNode; 
+            *   })
+            *   
+            *   The <td>'s parent (<tr>) will be sorted instead
+            *   of the <td> itself.
+            */
+            jQuery.fn.sortElements = (function () {
+
+                var sort = [].sort;
+
+                return function (comparator, getSortable) {
+
+                    getSortable = getSortable || function () { return this; };
+
+                    var placements = this.map(function () {
+
+                        var sortElement = getSortable.call(this),
+                parentNode = sortElement.parentNode,
+
+                        // Since the element itself will change position, we have
+                        // to have some way of storing it's original position in
+                        // the DOM. The easiest way is to have a 'flag' node:
+                nextSibling = parentNode.insertBefore(
+                    document.createTextNode(''),
+                    sortElement.nextSibling
+                );
+
+                        return function () {
+
+                            if (parentNode === this) {
+                                throw new Error(
+                        "You can't sort elements if any one is a descendant of another."
+                    );
+                            }
+
+                            // Insert before flag:
+                            parentNode.insertBefore(this, nextSibling);
+                            // Remove flag:
+                            parentNode.removeChild(nextSibling);
+
+                        };
+
+                    });
+
+                    return sort.call(this, comparator).each(function (i) {
+                        placements[i].call(getSortable.call(this));
+                    });
+
+                };
+
+            })();
+        </script>
+        <script type="text/javascript">
+            jQuery.fn.setBarSizes = (function () {
+                return function (metricName, maxBarSize, min) {
+                    var max = Math.max.apply(Math, $.makeArray($(this).map(function () { return Number($(this).attr('data-sr-' + metricName)); })));
+                    var scale = 1.0;
+                    while (max > 0.0 && max <= 10.0) {
+                        scale = scale * 10.0;
+                        max = max * 10.0;
+                    }
+                    max = (Math.ceil(max / 2) * 2) / scale;
+
+                    this.each(function () {
+                        var barAnchor = $(this).find('a');
+                        var actual = $(this).attr('data-sr-' + metricName);
+                        var newHeight = Math.max(Math.round(maxBarSize * (actual - min) / (max - min)), 2);
+                        barAnchor.css({ height: newHeight });
+                    });
+
+                    var unit = "";
+                    if (metricName.substr(metricName.length - 4, 4) === "time")
+                        unit = "s";
+
+                    $('#testview .scale-min-label').each(function () {
+                        $(this).text(min.toString() + unit);
+                    });
+                    $('#testview .scale-max-label').each(function () {
+                        $(this).text(max.toString() + unit);
+                    });
+                    var mid = max / 2;
+                    $('#testview .scale-mid-label').each(function () {
+                        $(this).text(mid.toString() + unit);
+                    });
+                };
+            })();
+
+            function getComparer(metricName, isDesc) {
+                return function (a, b) {
+                    var aNumber = Number($(a).attr('data-sr-' + metricName));
+                    var bNumber = Number($(b).attr('data-sr-' + metricName));
+                    var result = aNumber > bNumber ? 1 : (aNumber < bNumber ? -1 : 0);
+                    if (isDesc)
+                        result = -1 * result;
+
+                    if (result == 0 && metricName != "order")
+                        result = getComparer("order", false)(a, b);
+
+                    return result;
+                };
+            }
+
+            var currentSort = "";
+            function doSort(allowToggleDesc) {
+                var newSort = $("input[name='barSortOrder']:checked").val();
+                if (allowToggleDesc && currentSort == newSort) {
+                    $('#barSortDesc').click();
+                    doSort(false);
+                    return;
+                }
+                currentSort = newSort;
+                $('#testview td.testview-item').sortElements(getComparer(newSort, $('#barSortDesc').is(':checked')));
+            }
+
+
+            function doSetHeights(allowSort) {
+                var selectedMetric = $("input[name='barHeight']:checked").val();
+                $('#testview td.testview-item').setBarSizes(selectedMetric, 60, 0.0);
+
+                if (allowSort && currentSort != selectedMetric) {
+                    var $radios = $("input[name='barSortOrder']");
+                    $radios.filter('[value=' + selectedMetric + ']').attr('checked', true);
+                    $("#barSortDesc").attr("checked", [true]);
+                    doSort(false);
+                }
+            }
+
+            $(document).ready(function () {
+                $("input[name='barSortOrder']").click(function () { doSort(true); return true; });
+                $("input[name='barSortDesc']").change(function () { doSort(false); });
+                $("input[name='barHeight']").change(function () { doSetHeights(true); });
+
+                doSort(false);
+                doSetHeights(false);
+
+                $("div.scrollable").css({ 'overflow': 'auto' });
+            });
+        </script>
+
+        <style type="text/css">
+            body 
+            {
+                color: #000000;
+                font-family: Arial,Liberation Sans,DejaVu Sans,sans-serif;
+                line-height: 130%;
+            }
+            h1 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 170%;
+                font-weight: bold;
+            }            
+            h2 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 130%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            h3 {
+                font-family: Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;
+                font-size: 120%;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }            
+            a.bar
+            {
+                text-decoration: none;
+                display: block;
+                line-height: 1px;
+            }
+            .description
+            {
+                font-style: italic;
+            }
+            .log 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                display: block;
+                margin: 0px;
+            }
+            .errorMessage 
+            {
+                width: 600px;
+                color: Red;
+                font-weight: bold;
+            }
+            .stackTrace 
+            {
+                width: 600px;
+                white-space: pre-wrap;
+                font-style: italic;
+                color: Red;
+                display: block;
+            }
+            table.testEvents
+            {
+                border: solid 1px #e8eef4;
+                border-collapse: collapse;
+            }
+            table.testEvents td
+            {
+                vertical-align: top;
+                padding: 5px;
+                border: solid 1px #e8eef4;
+            }
+            table.testEvents th
+            {
+                padding: 6px 5px;
+                text-align: left;
+                background-color: #e8eef4;
+                border: solid 1px #e8eef4;                
+            }
+            .comment
+            {
+                font-style: italic;
+                font-size: smaller;
+            }
+            .startupBar
+            {
+                background-color: #EEEEEE;
+                cursor: default;
+            }
+            
+            .colorSucceeded
+            {
+                background-color: #90ED7B;
+            }
+            .colorIgnored
+            {
+                background-color: #FFFF85;
+            }
+            .colorPending
+            {
+                background-color: #D47BED;
+            }
+            .colorNothingToRun
+            {
+                background-color: #CCCCFF;
+            }
+            .colorSkipped
+            {
+                background-color: #CCCCFF;
+            }
+            .colorInconclusive
+            {
+                background-color: #7BEDED;
+            }
+            .colorCleanupFailed
+            {
+                background-color: #FFCCCC;
+            }
+            .colorRandomlyFailed
+            {
+                background-color: #EDB07B;
+            }
+            .colorFailed
+            {
+                background-color: #ED5F5F;
+            }
+            .colorInitializationFailed
+            {
+                background-color: #FF0000;
+            }
+            .colorFrameworkError
+            {
+                background-color: #FF0000;
+            }
+            ul.subNodeLinks
+            {
+                padding-left: 20px;
+                margin: 0px;
+            }
+            ul.subNodeLinks li
+            {
+                list-style: none;
+            }
+            
+            /* views general */
+            div.scrollable
+            {
+                /*overflow: auto; - thsi has to be set from js, because of an IE9 bug */
+            }
+            div.viewbox
+            {
+                position: relative;
+                border: 3px solid #e8eef4;
+            }
+            div.viewbox table
+            {
+                border: 0px;
+            }
+                        
+            /* testview */
+            #testview
+            {
+                padding-top: 23px;
+            }
+            
+            table.testview-items td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 1px;
+            }
+            td.right-padding, td.left-padding
+            {
+                width: 25px;
+                min-width: 25px;
+            }
+            table.testview-items a.bar
+            {
+                width: 5px;
+            }
+            table.testview-items tr.testview-items-row
+            {
+                height: 60px;
+            }
+            
+            /* scale */
+            table.vertical-scale 
+            {
+                position: absolute;
+                top: 23px;
+                left: 0px;
+                width: 100%;
+                z-index: -100;
+            }
+            table.vertical-scale td, tr.horizontal-scale td
+            {
+                font-size: 60%;
+                line-height: normal;
+            }
+            table.vertical-scale tr.scale-max, table.vertical-scale tr.scale-mid 
+            {
+                height: 30px;
+            }
+            tr.horizontal-scale, table.vertical-scale tr.scale-min 
+            {
+                height: 12px;
+            }
+            
+            td.scale-max-label, td.scale-mid-label, td.scale-min-label
+            {
+                border-top: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: top;
+            }
+            td.scale-10-label
+            {
+                border-left: solid 1px #E6E6E6;
+                text-align: left;
+                vertical-align: bottom;
+                padding-left: 1px;
+            }
+            tr.scale-mid td, tr.scale-min td, tr.scale-max td
+            {
+                border-top: solid 1px #E6E6E6;
+            }
+           
+            
+            /* bar-control */
+            #bar-control
+            {
+                font-size: 60%;
+                line-height: normal;
+                position: absolute;
+                right: 0px;
+                top: 0px;
+            }
+            #bar-control label
+            {
+                font-weight: bold;
+                vertical-align: middle;
+            }
+            #bar-control .option
+            {
+                vertical-align: middle;
+                text-transform: lowercase;
+            }
+            #bar-control input[type="checkbox"]
+            {
+                padding: 0 2px 0 3px;
+            }
+            #bar-control input
+            {
+                vertical-align: top;
+                height: 12px;
+                margin: 0px;
+                padding: 0px;
+            }
+            #bar-control div
+            {
+                float: right;
+                margin: 3px 5px 3px 5px;
+            }
+
+            /* timeline view */
+            #timelineview
+            {
+                padding-top: 5px;
+            }
+            table.timelineview a
+            {
+                height: 20px;
+            }
+            table.timelineview td
+            {
+                vertical-align: bottom;
+                padding: 0px 1px 0px 0px;
+                border: 0px;
+            }
+            tr.thread-items-row
+            {
+                height: 25px;
+            }
+            tr.thread-items-row td
+            {
+                vertical-align: bottom;
+            }
+            td.thread-label
+            {
+                padding: 0px 6px 0px 6px;
+                text-align: right;
+                line-height: 18px;
+                vertical-align: bottom;
+            }
+            th.thread-label
+            {
+                padding: 3px 6px 0px 6px;
+                line-height: 18px;
+                text-align: left;
+                vertical-align: bottom;
+            }
+        </style>
+	</head>
+	<body>
+        <h1>Unnamed project Test Execution Report</h1>
+        
+    <ul>
+        <li>Project: Unnamed project</li>
+        <li>Configuration: </li>
+        <li>Test Assemblies: C:\Users\sowjy\source\ELMO\SpecFlowProject1\bin\Debug\netcoreapp3.1\SpecFlowProject1.dll</li>
+        <li>Start Time: 22/11/2022 7:08:30 AM</li>
+        <li>Duration: 00:00:14.1504176</li>
+        <li>Test Threads: 1</li>
+    </ul>
+
+
+        <h2>Result: all tests passed</h2>
+        <table class="testEvents">
+                <tr>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+    </tr>
+
+                <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="19 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>19</td>
+    <td>19</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+
+        </table>
+        
+        <h2>Test Timeline Summary</h2>
+
+        <div id="timelineview" class="viewbox">
+            <div class="scrollable">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th class="thread-label" colspan="2">thread</th>
+                    </tr>
+                        <tr class="thread-items-row">
+                            <td class="thread-label" title="Machine: DESKTOP-QOIP40E">#0</td>
+                            <td colspan="2">
+                                <table class="timelineview" cellpadding="0" cellspacing="0">
+                                    <tr>
+
+                                            <td>
+        <a
+            class="bar startupBar" 
+            style="width: 3px;" 
+                title="test thread startup" 
+        >&nbsp;</a>
+    </td>
+
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 47px;" 
+                title="ActivateUser (in activateuser)" 
+                href="#t600531984.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GetListOfDepartmentDetails (in apigetdepartmentdetails)" 
+                href="#t-697686723.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GetListOfDepartments (in apigetdepartments)" 
+                href="#t1517516795.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GetEmployementDetailsSteps (in apigetemployementdetails)" 
+                href="#t1225800547.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GetListOfLegalEntity (in apigetlegalentity)" 
+                href="#t-1217974243.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GetListOfLegalEntityDetails (in apigetlegalentitydetails)" 
+                href="#t-675006175.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GetUserContactDetails (in apigetpersonalcontactdetails)" 
+                href="#t95850241.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GetUser (in apigetuserdetails)" 
+                href="#t-1751445270.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GetListOfUsers (in apigetusers)" 
+                href="#t1459304405.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GETapileavetypes (in apileavetypes)" 
+                href="#t339492048.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GETapileavetypesdetails (in apileavetypeDetails)" 
+                href="#t2008332129.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GETapilocationDetails (in apilocationdetails)" 
+                href="#t1230073590.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GETapilocations (in apilocations)" 
+                href="#t651906088.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 7px;" 
+                title="GETapipayrollcycles (in apipayrollcycles)" 
+                href="#t2036506368.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GETapipayrollcyclesDetails (in apipayrollcyclesdetails)" 
+                href="#t1969927352.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GETapipositiondetails (in apipositiondetails)" 
+                href="#t1492616942.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 3px;" 
+                title="GETapipositions (in apipositions)" 
+                href="#t641745448.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 4px;" 
+                title="UpdateUserContactDetails (in apiupdatepersonalcontactdetails)" 
+                href="#t-952256831.0"
+        >&nbsp;</a>
+    </td>
+    <td>
+        <a
+            class="bar colorSucceeded" 
+            style="width: 6px;" 
+                title="DeactivateUser (in deactivateuser)" 
+                href="#t-1777056048.0"
+        >&nbsp;</a>
+    </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    <tr class="horizontal-scale">
+                        <td>&nbsp;</td>
+                            <td class="scale-10-label" style="width: 75px;min-width: 75px;">0s</td>
+                        <td class="scale-10-label">8s</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        
+    <h2>Test Result View</h2>
+    <div id="testview" class="viewbox">
+        <div id="bar-control">
+            <div id="bar-control-sort">
+                <label>sort by:</label>
+                <span class="option"><input type="radio" name="barSortOrder" value="exectime" />Time</span>
+                <span class="option"><input type="radio" name="barSortOrder" value="acttime" />Act Time</span>
+                <span class="option"><input type="radio" name="barSortOrder" value="order" />Execution</span>
+                <span class="option"><input type="radio" name="barSortOrder" value="rescode" checked="checked" />Result</span>
+                <span class="option"><input type="checkbox" name="barSortDesc" id="barSortDesc" checked="checked" />desc</span>
+            </div>
+            <div id="bar-control-heights">
+                <label>heights:</label>
+                <span class="option"><input type="radio" checked="checked" name="barHeight" value="exectime" />Time</span>
+                <span class="option"><input type="radio" name="barHeight" value="acttime" />Act Time</span>
+            </div>
+        </div>
+        <table class="vertical-scale" cellpadding="0" cellspacing="0">
+            <tr class="scale-max">
+                <td class="left-padding scale-max-label">&nbsp;</td>
+                <td colspan="19">&nbsp;</td>
+                <td class="right-padding">&nbsp;</td>
+            </tr>
+            <tr class="scale-mid">
+                <td class="left-padding scale-mid-label">&nbsp;</td>
+                <td colspan="19">&nbsp;</td>
+                <td class="right-padding">&nbsp;</td>
+            </tr>
+            <tr class="scale-min">
+                <td class="left-padding scale-min-label">&nbsp;</td>
+                <td colspan="19">&nbsp;</td>
+                <td class="right-padding">&nbsp;</td>
+            </tr>
+        </table>
+        <div class="scrollable">
+            <table class="testview-items" cellpadding="0" cellspacing="0">
+                <tr class="testview-items-row">
+                    <td class="left-padding">&nbsp;</td>
+    <td class="testview-item" 
+        data-sr-exectime="2.8085558" data-sr-rescode="110" data-sr-order="0" data-sr-acttime="0.006">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 60px;"
+            title="ActivateUser (in activateuser)"
+            href="#t600531984.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3718347" data-sr-rescode="110" data-sr-order="1" data-sr-acttime="0.008">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 8px;"
+            title="GetListOfDepartmentDetails (in apigetdepartmentdetails)"
+            href="#t-697686723.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3452477" data-sr-rescode="110" data-sr-order="2" data-sr-acttime="0.002">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 7px;"
+            title="GetListOfDepartments (in apigetdepartments)"
+            href="#t1517516795.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.4288407" data-sr-rescode="110" data-sr-order="3" data-sr-acttime="0.002">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 9px;"
+            title="GetEmployementDetailsSteps (in apigetemployementdetails)"
+            href="#t1225800547.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.5443914" data-sr-rescode="110" data-sr-order="4" data-sr-acttime="0.004">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 12px;"
+            title="GetListOfLegalEntity (in apigetlegalentity)"
+            href="#t-1217974243.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3722753" data-sr-rescode="110" data-sr-order="5" data-sr-acttime="0.002">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 8px;"
+            title="GetListOfLegalEntityDetails (in apigetlegalentitydetails)"
+            href="#t-675006175.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.4098993" data-sr-rescode="110" data-sr-order="6" data-sr-acttime="0.002">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 9px;"
+            title="GetUserContactDetails (in apigetpersonalcontactdetails)"
+            href="#t95850241.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3202652" data-sr-rescode="110" data-sr-order="7" data-sr-acttime="0.003">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 7px;"
+            title="GetUser (in apigetuserdetails)"
+            href="#t-1751445270.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.4353668" data-sr-rescode="110" data-sr-order="8" data-sr-acttime="0.002">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 9px;"
+            title="GetListOfUsers (in apigetusers)"
+            href="#t1459304405.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3049984" data-sr-rescode="110" data-sr-order="9" data-sr-acttime="0.002">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 7px;"
+            title="GETapileavetypes (in apileavetypes)"
+            href="#t339492048.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3535703" data-sr-rescode="110" data-sr-order="10" data-sr-acttime="0.004">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 8px;"
+            title="GETapileavetypesdetails (in apileavetypeDetails)"
+            href="#t2008332129.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3638791" data-sr-rescode="110" data-sr-order="11" data-sr-acttime="0.003">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 8px;"
+            title="GETapilocationDetails (in apilocationdetails)"
+            href="#t1230073590.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3119689" data-sr-rescode="110" data-sr-order="12" data-sr-acttime="0.002">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 7px;"
+            title="GETapilocations (in apilocations)"
+            href="#t651906088.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="1.4032783" data-sr-rescode="110" data-sr-order="13" data-sr-acttime="0.002">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 30px;"
+            title="GETapipayrollcycles (in apipayrollcycles)"
+            href="#t2036506368.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3349442" data-sr-rescode="110" data-sr-order="14" data-sr-acttime="0.004">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 7px;"
+            title="GETapipayrollcyclesDetails (in apipayrollcyclesdetails)"
+            href="#t1969927352.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3601591" data-sr-rescode="110" data-sr-order="15" data-sr-acttime="0.003">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 8px;"
+            title="GETapipositiondetails (in apipositiondetails)"
+            href="#t1492616942.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.3699111" data-sr-rescode="110" data-sr-order="16" data-sr-acttime="0.002">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 8px;"
+            title="GETapipositions (in apipositions)"
+            href="#t641745448.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.7499675" data-sr-rescode="110" data-sr-order="17" data-sr-acttime="0.003">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 16px;"
+            title="UpdateUserContactDetails (in apiupdatepersonalcontactdetails)"
+            href="#t-952256831.0">&nbsp;</a>
+    </td>
+    <td class="testview-item" 
+        data-sr-exectime="0.7259608" data-sr-rescode="110" data-sr-order="18" data-sr-acttime="0.003">
+        <a
+            class="bar colorSucceeded" 
+            style="height: 16px;"
+            title="DeactivateUser (in deactivateuser)"
+            href="#t-1777056048.0">&nbsp;</a>
+    </td>
+                    <td class="right-padding">&nbsp;</td>
+                </tr>
+                <tr class="horizontal-scale">
+                    <td class="left-padding">&nbsp;</td>
+                    <td colspan="10">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+        
+        
+    <h2>Feature Summary</h2>
+    <table class="testEvents">
+            <tr>
+            <th>Feature</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+
+            <tr>
+                <td><a href="#f-1396564348">activateuser</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:02.8085558</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-1958442622">apigetdepartmentdetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3718347</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-1423301487">apigetdepartments</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3452477</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-1617609487">apigetemployementdetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.4288407</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-28033244">apigetlegalentity</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.5443914</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f130868810">apigetlegalentitydetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3722753</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-169770428">apigetpersonalcontactdetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.4098993</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f88181485">apigetuserdetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3202652</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f83138942">apigetusers</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.4353668</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-2078003795">apileavetypeDetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3535703</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-173477730">apileavetypes</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3049984</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f298337971">apilocationdetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3638791</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-1105901522">apilocations</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3119689</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f117794084">apipayrollcycles</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:01.4032783</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f1185075202">apipayrollcyclesdetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3349442</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f1433891991">apipositiondetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3601591</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-1282473454">apipositions</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3699111</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f-1516202197">apiupdatepersonalcontactdetails</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.7499675</td>
+
+            </tr>
+            <tr>
+                <td><a href="#f2105259585">deactivateuser</a></td>
+                    <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.7259608</td>
+
+            </tr>
+    </table>
+
+
+        <a name="error_summary" />
+        <h2>Error Summary</h2>
+        <table class="testEvents">
+                <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+    </tr>
+
+        </table>
+
+        <h2>Scenario Summary</h2>
+            <a name="f-1396564348" />
+            <h3>Feature: activateuser</h3>
+                <div class="description"><pre>	This is used to activate an User</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t600531984.0">Scenario: ActivateUser</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:02.8085558</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-1958442622" />
+            <h3>Feature: apigetdepartmentdetails</h3>
+                <div class="description"><pre>	This feature will cover Api testing</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t-697686723.0">Scenario: GetListOfDepartmentDetails</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3718347</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-1423301487" />
+            <h3>Feature: apigetdepartments</h3>
+                <div class="description"><pre>	This feature will cover Api testing</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t1517516795.0">Scenario: GetListOfDepartments</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3452477</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-1617609487" />
+            <h3>Feature: apigetemployementdetails</h3>
+                <div class="description"><pre>	This will result employement details</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t1225800547.0">Scenario: GetEmployementDetailsSteps</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.4288407</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-28033244" />
+            <h3>Feature: apigetlegalentity</h3>
+                <div class="description"><pre>	This feature will cover Api testing for legal entity</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t-1217974243.0">Scenario: GetListOfLegalEntity</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.5443914</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f130868810" />
+            <h3>Feature: apigetlegalentitydetails</h3>
+                <div class="description"><pre>	This feature will cover Api testing for legal entity details</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t-675006175.0">Scenario: GetListOfLegalEntityDetails</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3722753</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-169770428" />
+            <h3>Feature: apigetpersonalcontactdetails</h3>
+                <div class="description"><pre>	This will result user contact details</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t95850241.0">Scenario: GetUserContactDetails</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.4098993</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f88181485" />
+            <h3>Feature: apigetuserdetails</h3>
+                <div class="description"><pre>	This will result user details</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t-1751445270.0">Scenario: GetUser</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3202652</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f83138942" />
+            <h3>Feature: apigetusers</h3>
+                <div class="description"><pre>	This feature will cover Api testing</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t1459304405.0">Scenario: GetListOfUsers</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.4353668</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-2078003795" />
+            <h3>Feature: apileavetypeDetails</h3>
+                <div class="description"><pre>	This covers Leave-Types Details GET API valication</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t2008332129.0">Scenario: GETapileavetypesdetails</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3535703</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-173477730" />
+            <h3>Feature: apileavetypes</h3>
+                <div class="description"><pre>	This covers Leave-Types GET API valication</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t339492048.0">Scenario: GETapileavetypes</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3049984</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f298337971" />
+            <h3>Feature: apilocationdetails</h3>
+                <div class="description"><pre>	This covers Location GET API valication</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t1230073590.0">Scenario: GETapilocationDetails</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3638791</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-1105901522" />
+            <h3>Feature: apilocations</h3>
+                <div class="description"><pre>	This covers Location GET API valication</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t651906088.0">Scenario: GETapilocations</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3119689</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f117794084" />
+            <h3>Feature: apipayrollcycles</h3>
+                <div class="description"><pre>	This covers PayrollCycles GET API valication</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t2036506368.0">Scenario: GETapipayrollcycles</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:01.4032783</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f1185075202" />
+            <h3>Feature: apipayrollcyclesdetails</h3>
+                <div class="description"><pre>	This covers PayrollCyclesDetails GET API valication</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t1969927352.0">Scenario: GETapipayrollcyclesDetails</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3349442</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f1433891991" />
+            <h3>Feature: apipositiondetails</h3>
+                <div class="description"><pre>	This covers Positions GET API validation</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t1492616942.0">Scenario: GETapipositiondetails</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3601591</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-1282473454" />
+            <h3>Feature: apipositions</h3>
+                <div class="description"><pre>	This covers Positions GET API valication</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t641745448.0">Scenario: GETapipositions</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.3699111</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f-1516202197" />
+            <h3>Feature: apiupdatepersonalcontactdetails</h3>
+                <div class="description"><pre>	This will result updated user contact details</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t-952256831.0">Scenario: UpdateUserContactDetails</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.7499675</td>
+
+                        
+                    </tr>
+            </table>
+            <a name="f2105259585" />
+            <h3>Feature: deactivateuser</h3>
+                <div class="description"><pre>	This is used to deactivate an User</pre>
+                </div>
+            <table class="testEvents">
+                    <tr>
+            <th>Test</th>
+        <th colspan="2">Success rate</th>
+        <th>Tests</th>
+        <th>Succeeded</th>
+        <th>Failed</th>
+        <th>Pending</th>
+        <th>Ignored</th>
+        <th>Skipped</th>
+            <th>Duration</th>
+    </tr>
+
+                    <tr>
+                        <td>
+                                    <a href="#t-1777056048.0">Scenario: DeactivateUser</a>
+
+                        </td>
+                        
+                            <td>
+            100%
+    </td>
+    <td>
+            <table class="timelineview" cellpadding="0" cellspacing="0">
+        <tr>
+    <td>
+        <a class="bar colorSucceeded" 
+           style="width: 199px;" 
+           title="1 succeeded" 
+                   ></a>
+    </td>
+        </tr>
+    </table>
+
+    </td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+    <td>0</td>
+        <td>00:00:00.7259608</td>
+
+                        
+                    </tr>
+            </table>
+
+        <h2>Execution Details</h2>
+            <a name="t600531984.0" />
+            <h3>Scenario: ActivateUser (in SpecFlowProject1, activateuser)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:33 AM</li>
+                <li>Execution time (sec): 2.8085558</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given activate user api as
+  --- table step argument ---
+  | activateUser                                         |
+  | /users/33c65058-17ac-11ed-8971-02ea2a01b072/activate |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - ActivateUser] -->
+                            <pre class="log">API POST Response Status: 200
+ResponseCode found is: 200
+Summary found is: success
+Id found is: 33c65058-17ac-11ed-8971-02ea2a01b072
+success logs found is: SpecFlowProject1.DTO.successData
+successCount logs found is: 0
+failure logs found is: SpecFlowProject1.DTO.failureData
+failureCount logs found is: 0
+done: ActivateUserSteps.GivenActivateUserApiAs(&lt;table&gt;) (2.6s)</pre>
+                        </td>
+                        <td>Succeeded in 2.654s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the POST method is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - ActivateUser] -->
+                            <pre class="log">done: ActivateUserSteps.WhenThePostMethodIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.006s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the user shoud be activated</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - ActivateUser] -->
+                            <pre class="log">done: ActivateUserSteps.ThenTheUserShoudBeActivated() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.006s</td>
+                    </tr>
+            </table>
+            <a name="t-697686723.0" />
+            <h3>Scenario: GetListOfDepartmentDetails (in SpecFlowProject1, apigetdepartmentdetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:35 AM</li>
+                <li>Execution time (sec): 0.3718347</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given the working api as
+  --- table step argument ---
+  | getDepartments                                    |
+  | /departments/0dcae4ac-0e17-11ed-a658-066dc767596e |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GetListOfDepartmentDetails] -->
+                            <pre class="log">API Response Code : 200
+ID : 0dcae4ac-0e17-11ed-a658-066dc767596e
+DepartmentId : RQ12
+Title : Veteran Affairs and Policy
+done: ApiGetDepartmentDetailsSteps.GivenTheWorkingApiAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.338s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Request called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GetListOfDepartmentDetails] -->
+                            <pre class="log">done: ApiGetDepartmentDetailsSteps.WhenTheGETRequestCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.008s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the result should show details of Department</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GetListOfDepartmentDetails] -->
+                            <pre class="log">done: ApiGetDepartmentDetailsSteps.ThenTheResultShouldShowDetailsOfDepartment() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.008s</td>
+                    </tr>
+            </table>
+            <a name="t1517516795.0" />
+            <h3>Scenario: GetListOfDepartments (in SpecFlowProject1, apigetdepartments)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:36 AM</li>
+                <li>Execution time (sec): 0.3452477</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given working api as
+  --- table step argument ---
+  | getDepartments |
+  | /departments   |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GetListOfDepartments] -->
+                            <pre class="log">API Response Code : 200
+Parent : 
+ID : 0dcae4ac-0e17-11ed-a658-066dc767596e
+Description : 
+DepartmentId : RQ12
+1st Set of Data : Title : Veteran Affairs and Policy
+Path : /
+Deleted : False
+done: ApiGetDepartmentsSteps.GivenWorkingApiAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.333s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When GET Request called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GetListOfDepartments] -->
+                            <pre class="log">done: ApiGetDepartmentsSteps.WhenGETRequestCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the result should show list of Departments</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GetListOfDepartments] -->
+                            <pre class="log">done: ApiGetDepartmentsSteps.ThenTheResultShouldShowListOfDepartments() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t1225800547.0" />
+            <h3>Scenario: GetEmployementDetailsSteps (in SpecFlowProject1, apigetemployementdetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:36 AM</li>
+                <li>Execution time (sec): 0.4288407</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given a working get employement details api as
+  --- table step argument ---
+  | getEmployement                              |
+  | /users/33c65058-17ac-11ed-8971-02ea2a01b072 |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GetEmployementDetailsSteps] -->
+                            <pre class="log">API Response Code : 200
+Id : 33c65058-17ac-11ed-8971-02ea2a01b072
+EmploymentType : 
+UnitsPerWeek : 
+Rate : 
+RateType : 
+TerminationDate : 
+PayCycle : 
+TaxDetails : 
+BankAccountDetails : 
+SuperannuationDetails : 
+done: APIGeEmployementDetailsSteps.GivenAWorkingGetEmployementDetailsApiAs(&lt;table&gt;) (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.417s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Request is called for an employement</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GetEmployementDetailsSteps] -->
+                            <pre class="log">done: APIGeEmployementDetailsSteps.WhenTheGETRequestIsCalledForAnEmployement() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the result should show employement details</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GetEmployementDetailsSteps] -->
+                            <pre class="log">done: APIGeEmployementDetailsSteps.ThenTheResultShouldShowEmployementDetails() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t-1217974243.0" />
+            <h3>Scenario: GetListOfLegalEntity (in SpecFlowProject1, apigetlegalentity)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:37 AM</li>
+                <li>Execution time (sec): 0.5443914</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given a working LegalEntity api as
+  --- table step argument ---
+  | getLegalEntity  |
+  | /legal-entities |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GetListOfLegalEntity] -->
+                            <pre class="log">API Response Code : 200
+ID : d346aa32-1136-11ed-a3f8-0600a04d607a
+Abn : 54160646999
+BusinessName : MATES4MATES LIMITED
+TradingName : MATES4MATES
+BranchNumber : 
+ContactName : Wendy Hoobin
+Phone : 07 3230 2477
+Fax : 
+Email : Wendy.Hoobin@rslqld.org
+Default : False
+Active : True
+Jurisdiction : AU
+Address : SpecFlowProject1.DTO.Address
+AddressLine1 : 27 Douglas Street
+AddressLine2 : 
+Suburb : Milton
+State : QLD
+Postcode : 4064
+Country : AU
+done: ApiGetLegalEntitySteps.GivenAWorkingLegalEntityApiAs(&lt;table&gt;) (0.5s)</pre>
+                        </td>
+                        <td>Succeeded in 0.521s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Request is called for Legal Entity</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GetListOfLegalEntity] -->
+                            <pre class="log">done: ApiGetLegalEntitySteps.WhenTheGETRequestIsCalledForLegalEntity() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the result should show list of Legal Entities</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GetListOfLegalEntity] -->
+                            <pre class="log">done: ApiGetLegalEntitySteps.ThenTheResultShouldShowListOfLegalEntities() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.008s</td>
+                    </tr>
+            </table>
+            <a name="t-675006175.0" />
+            <h3>Scenario: GetListOfLegalEntityDetails (in SpecFlowProject1, apigetlegalentitydetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:37 AM</li>
+                <li>Execution time (sec): 0.3722753</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given a working LegalEntityDetails api as
+  --- table step argument ---
+  | getLegalEntity                                       |
+  | /legal-entities/d346aa32-1136-11ed-a3f8-0600a04d607a |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GetListOfLegalEntityDetails] -->
+                            <pre class="log">API Response Code : 200
+ID : d346aa32-1136-11ed-a3f8-0600a04d607a
+Abn : 54160646999
+BusinessName : MATES4MATES LIMITED
+TradingName : MATES4MATES
+BranchNumber : 
+ContactName : Wendy Hoobin
+Phone : 07 3230 2477
+Fax : 
+Email : Wendy.Hoobin@rslqld.org
+Default : False
+Active : True
+Jurisdiction : AU
+Address : SpecFlowProject1.DTO.Address
+AddressLine1 : 27 Douglas Street
+AddressLine2 : 
+Suburb : Milton
+State : QLD
+Postcode : 4064
+Country : AU
+done: ApiGetLegalEntityDetailSteps.GivenAWorkingLegalEntityDetailsApiAs(&lt;table&gt;) (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.359s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Request is called for Legal Entity Details</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GetListOfLegalEntityDetails] -->
+                            <pre class="log">done: ApiGetLegalEntityDetailSteps.WhenTheGETRequestIsCalledForLegalEntityDetails() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the result should show Details of Legal Entity</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GetListOfLegalEntityDetails] -->
+                            <pre class="log">done: ApiGetLegalEntityDetailSteps.ThenTheResultShouldShowDetailsOfLegalEntity() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t95850241.0" />
+            <h3>Scenario: GetUserContactDetails (in SpecFlowProject1, apigetpersonalcontactdetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:38 AM</li>
+                <li>Execution time (sec): 0.4098993</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given a working get user contact details api as
+  --- table step argument ---
+  | getUser                                                              |
+  | /users/33c65058-17ac-11ed-8971-02ea2a01b072/personal-contact-details |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GetUserContactDetails] -->
+                            <pre class="log">API Response Code : 200
+PersonalEmail : john.smith@test.com
+HomePhone : 012345678900
+WorkPhone : 0123456789
+PersonalMobile : 012345678900
+AddressLine1 : 580 George street
+AddressLine2 : townhall
+Suburb : Sydney
+State : NSW
+PostCode : 2000
+Country : AU
+done: APIGetUserDetailSteps.GivenAWorkingGetUserContactDetailsApiAs(&lt;table&gt;) (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.401s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Request  called for an user</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GetUserContactDetails] -->
+                            <pre class="log">done: APIGetUserDetailSteps.WhenTheGETRequestCalledForAnUser() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the result should show user contact details</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GetUserContactDetails] -->
+                            <pre class="log">done: APIGetUserDetailSteps.ThenTheResultShouldShowUserContactDetails() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t-1751445270.0" />
+            <h3>Scenario: GetUser (in SpecFlowProject1, apigetuserdetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:38 AM</li>
+                <li>Execution time (sec): 0.3202652</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given a working get user api as
+  --- table step argument ---
+  | getUser                                     |
+  | /users/33c65058-17ac-11ed-8971-02ea2a01b072 |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GetUser] -->
+                            <pre class="log">API Response Code : 200
+firstName : Mark
+lastName : Rhodes
+done: APIGetUserDetailsSteps.GivenAWorkingGetUserApiAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.304s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Request is called for an user</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GetUser] -->
+                            <pre class="log">done: APIGetUserDetailsSteps.WhenTheGETRequestIsCalledForAnUser() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the result should show user details</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GetUser] -->
+                            <pre class="log">done: APIGetUserDetailsSteps.ThenTheResultShouldShowUserDetails() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+            </table>
+            <a name="t1459304405.0" />
+            <h3>Scenario: GetListOfUsers (in SpecFlowProject1, apigetusers)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:38 AM</li>
+                <li>Execution time (sec): 0.4353668</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given a working api as
+  --- table step argument ---
+  | getUsers |
+  | /users   |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GetListOfUsers] -->
+                            <pre class="log">API Response Code : 200
+ID : c8b7b8c8-6617-11ed-b772-02ea2a01b072
+Iidentifier : test02.nugroho02@rslqld.org
+FirstName : Test02
+lastName : Nugroho02
+1st Set of Data : username : test02.nugroho02@rslqld.org
+employeeNumber : 01023002
+email : test02.nugroho02@rslqld.org
+preferredname : 
+2nd Set of Data : Actual username : mark.rhodes@rslqld.org
+done: ApiGetUsersSteps.GivenAWorkingApi(&lt;table&gt;) (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.425s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Request is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GetListOfUsers] -->
+                            <pre class="log">done: ApiGetUsersSteps.WhenTheGETRequestIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the result should show list of Users</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GetListOfUsers] -->
+                            <pre class="log">done: ApiGetUsersSteps.ThenTheResultShouldShowListOfUsers() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t339492048.0" />
+            <h3>Scenario: GETapileavetypes (in SpecFlowProject1, apileavetypes)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:39 AM</li>
+                <li>Execution time (sec): 0.3049984</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given the LeaveTypesAPI as
+  --- table step argument ---
+  | getLeaveTypes |
+  | /leave-types  |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GETapileavetypes] -->
+                            <pre class="log">API Response Code : 200
+ID : 0609057f-5937-11eb-a2d3-0ab07bdabd6c
+AccrualType : FREE_TEXT
+1st Set of Data : Title : Unpaid Compassionate Leave
+DisplayTitle : Unpaid Compassionate Leave
+Description : &lt;p&gt;Casual receive this leave as part of National Employment Standard&lt;/p&gt;
+
+Code : 
+EntitlementType : 
+Deleted : False
+2nd Set of Data : Actual username : Unpaid Carer’s Leave
+done: APIgetLeaveTypesStep.GivenTheLeaveTypesAPIAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.295s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Leave Types is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GETapileavetypes] -->
+                            <pre class="log">done: APIgetLeaveTypesStep.WhenTheGETLeaveTypesIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then results shouls have list of LeaveTypes</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GETapileavetypes] -->
+                            <pre class="log">done: APIgetLeaveTypesStep.ThenResultsShoulsHaveListOfLeaveTypes() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+            </table>
+            <a name="t2008332129.0" />
+            <h3>Scenario: GETapileavetypesdetails (in SpecFlowProject1, apileavetypeDetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:39 AM</li>
+                <li>Execution time (sec): 0.3535703</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given the LeaveTypesDetailsAPI as
+  --- table step argument ---
+  | getLeaveTypes                                     |
+  | /leave-types/0609057f-5937-11eb-a2d3-0ab07bdabd6c |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GETapileavetypesdetails] -->
+                            <pre class="log">API Response Code : 200
+ID : 0609057f-5937-11eb-a2d3-0ab07bdabd6c
+AccrualType : FREE_TEXT
+1st Set of Data : Title : Unpaid Compassionate Leave
+DisplayTitle : Unpaid Compassionate Leave
+Description : &lt;p&gt;Casual receive this leave as part of National Employment Standard&lt;/p&gt;
+
+Code : 
+EntitlementType : 
+Deleted : False
+done: APIgetLeaveTypesDetailsStep.GivenTheLeaveTypesDetailsAPIAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.341s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Leave Types Details is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GETapileavetypesdetails] -->
+                            <pre class="log">done: APIgetLeaveTypesDetailsStep.WhenTheGETLeaveTypesDetailsIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then results shoulds have Details of LeaveTypes</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GETapileavetypesdetails] -->
+                            <pre class="log">done: APIgetLeaveTypesDetailsStep.ThenResultsShouldsHaveDetailsOfLeaveTypes() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t1230073590.0" />
+            <h3>Scenario: GETapilocationDetails (in SpecFlowProject1, apilocationdetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:39 AM</li>
+                <li>Execution time (sec): 0.3638791</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given locationsAPI as
+  --- table step argument ---
+  | getLocs                                         |
+  | /locations/e4926d9e-0e16-11ed-bb27-0a0dcb939cfa |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GETapilocationDetails] -->
+                            <pre class="log">API Response Code : 200
+ID : e4926d9e-0e16-11ed-bb27-0a0dcb939cfa
+Parent : 
+1st Set of Data Title : Townsville
+LocationId : Townsville
+Description : 
+AddressLine1 : 
+AddressLine2 : 
+Suburb : 
+State : 
+Postcode : 
+Country : 
+Path : /
+Deleted : False
+done: APIgetLocationSteps.GivenLocationsAPIAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.352s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When GET LocationDetails is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GETapilocationDetails] -->
+                            <pre class="log">done: APIgetLocationSteps.WhenGETLocationDetailsIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then results shouls have Details of location</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GETapilocationDetails] -->
+                            <pre class="log">done: APIgetLocationSteps.ThenResultsShoulsHaveDetailsOfLocation() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+            </table>
+            <a name="t651906088.0" />
+            <h3>Scenario: GETapilocations (in SpecFlowProject1, apilocations)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:40 AM</li>
+                <li>Execution time (sec): 0.3119689</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given the locationsAPI as
+  --- table step argument ---
+  | getLocs    |
+  | /locations |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GETapilocations] -->
+                            <pre class="log">API Response Code : 200
+ID : e4926d9e-0e16-11ed-bb27-0a0dcb939cfa
+Parent : 
+1st Set of Data Title : Townsville
+LocationId : Townsville
+Description : 
+AddressLine1 : 
+AddressLine2 : 
+Suburb : 
+State : 
+Postcode : 
+Country : 
+Path : /
+Deleted : False
+2nd Set of Data : Actual username : Toowoomba
+done: APIgetLocationStep.GivenTheLocationsAPIAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.304s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Locations is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GETapilocations] -->
+                            <pre class="log">done: APIgetLocationStep.WhenTheGETLocationsIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then results shouls have list of locations</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GETapilocations] -->
+                            <pre class="log">done: APIgetLocationStep.ThenResultsShoulsHaveListOfLocations() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t2036506368.0" />
+            <h3>Scenario: GETapipayrollcycles (in SpecFlowProject1, apipayrollcycles)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:40 AM</li>
+                <li>Execution time (sec): 1.4032783</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given the PayrollCyclesAPI as
+  --- table step argument ---
+  | getPayrollCycles |
+  | /payroll-cycles  |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GETapipayrollcycles] -->
+                            <pre class="log">API Response Code : 200
+ID : 82146120-82b6-11ea-bca8-020963fd5938
+1st Set of Data: Title : Monthly Payroll
+Description : &lt;p&gt;Monthly Payroll processed on 15th of each month. Please change as required.&lt;/p&gt;
+StartDate : 5/15/2017 12:00:00 AM +10:00
+Type : MONTHLY
+Default : False
+WeeksPerAnnum : 52
+Jurisdiction : AU
+2nd Set of Data : Actual username : Fortnightly Payroll
+done: APIgetPayrollCyclesSteps.GivenThePayrollCyclesAPIAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 1.39s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET PayrollCycles is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GETapipayrollcycles] -->
+                            <pre class="log">done: APIgetPayrollCyclesSteps.WhenTheGETPayrollCyclesIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then results should have list of PayrollCycles</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GETapipayrollcycles] -->
+                            <pre class="log">done: APIgetPayrollCyclesSteps.ThenResultsShouldHaveListOfPayrollCycles() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t1969927352.0" />
+            <h3>Scenario: GETapipayrollcyclesDetails (in SpecFlowProject1, apipayrollcyclesdetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:41 AM</li>
+                <li>Execution time (sec): 0.3349442</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given the PayrollCyclesDetailsAPI as
+  --- table step argument ---
+  | getPayrollCycles                                     |
+  | /payroll-cycles/82146120-82b6-11ea-bca8-020963fd5938 |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GETapipayrollcyclesDetails] -->
+                            <pre class="log">API Response Code : 200
+ID : 82146120-82b6-11ea-bca8-020963fd5938
+Title : Monthly Payroll
+Description : &lt;p&gt;Monthly Payroll processed on 15th of each month. Please change as required.&lt;/p&gt;
+StartDate : 5/15/2017 12:00:00 AM +10:00
+Type : MONTHLY
+Default : False
+WeeksPerAnnum : 52
+Jurisdiction : AU
+done: APIgetPayrollCyclesDetailsSteps.GivenThePayrollCyclesDetailsAPIAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.324s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET PayrollCyclesDetails is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GETapipayrollcyclesDetails] -->
+                            <pre class="log">done: APIgetPayrollCyclesDetailsSteps.WhenTheGETPayrollCyclesDetailsIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then results should have Details of PayrollCycles</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GETapipayrollcyclesDetails] -->
+                            <pre class="log">done: APIgetPayrollCyclesDetailsSteps.ThenResultsShouldHaveDetailsOfPayrollCycles() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t1492616942.0" />
+            <h3>Scenario: GETapipositiondetails (in SpecFlowProject1, apipositiondetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:42 AM</li>
+                <li>Execution time (sec): 0.3601591</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given the PositionDetailsAPI as
+  --- table step argument ---
+  | getPositions                                    |
+  | /positions/367a93fc-0e17-11ed-af90-02f37fe20b40 |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GETapipositiondetails] -->
+                            <pre class="log">API Response Code : 200
+ID : 367a93fc-0e17-11ed-af90-02f37fe20b40
+1st Set of Data: Title : WHS &amp; Wellbeing Specialist
+ Parent : 
+Deleted : False
+PositionId : WHS &amp; Wellbeing Specialist
+Description : 
+Qualifications : 
+done: APIgetLocationDetailsStep.GivenThePositionDetailsAPIAs(&lt;table&gt;) (0.3s)</pre>
+                        </td>
+                        <td>Succeeded in 0.348s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET PositionDetails is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GETapipositiondetails] -->
+                            <pre class="log">done: APIgetLocationDetailsStep.WhenTheGETPositionDetailsIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then results shouls have Details of Position</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GETapipositiondetails] -->
+                            <pre class="log">done: APIgetLocationDetailsStep.ThenResultsShoulsHaveDetailsOfPosition() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t641745448.0" />
+            <h3>Scenario: GETapipositions (in SpecFlowProject1, apipositions)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:42 AM</li>
+                <li>Execution time (sec): 0.3699111</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given the PositionsAPI as
+  --- table step argument ---
+  | getPositions |
+  | /positions   |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - GETapipositions] -->
+                            <pre class="log">API Response Code : 200
+ID : 367a93fc-0e17-11ed-af90-02f37fe20b40
+1st Set of Data: Title : WHS &amp; Wellbeing Specialist
+ Parent : 
+Deleted : False
+PositionId : WHS &amp; Wellbeing Specialist
+Description : 
+Qualifications : 
+2nd Set of Data : Actual username : Wellbeing Level 2
+done: APIgetLocationsStep.GivenThePositionsAPIAs(&lt;table&gt;) (0.4s)</pre>
+                        </td>
+                        <td>Succeeded in 0.357s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the GET Positions is called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - GETapipositions] -->
+                            <pre class="log">done: APIgetLocationsStep.WhenTheGETPositionsIsCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then results shouls have list of Positions</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - GETapipositions] -->
+                            <pre class="log">done: APIgetLocationsStep.ThenResultsShoulsHaveListOfPositions() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+            </table>
+            <a name="t-952256831.0" />
+            <h3>Scenario: UpdateUserContactDetails (in SpecFlowProject1, apiupdatepersonalcontactdetails)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:43 AM</li>
+                <li>Execution time (sec): 0.7499675</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given a working update user contact details api as
+  --- table step argument ---
+  | putUser                                                              |
+  | /users/eb5490d6-12f2-11ed-9353-024d2e4942a6/personal-contact-details |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - UpdateUserContactDetails] -->
+                            <pre class="log">Request Body: {
+  &quot;personalEmail&quot;: &quot;test08@gmail.com&quot;,
+  &quot;homePhoneCountryCode&quot;: &quot;01&quot;,
+  &quot;homePhoneAreaCode&quot;: &quot;234&quot;,
+  &quot;homePhone&quot;: &quot;5678900&quot;,
+  &quot;workPhone&quot;: &quot;0123456789&quot;,
+  &quot;mobileCountryCode&quot;: &quot;01&quot;,
+  &quot;mobileAreaCode&quot;: &quot;234&quot;,
+  &quot;personalMobile&quot;: &quot;5678900&quot;,
+  &quot;addressLine1&quot;: &quot;580 George street&quot;,
+  &quot;addressLine2&quot;: &quot;townhall&quot;,
+  &quot;suburb&quot;: &quot;Sydney&quot;,
+  &quot;state&quot;: &quot;NSW&quot;,
+  &quot;postCode&quot;: &quot;2000&quot;,
+  &quot;country&quot;: &quot;AU&quot;
+}
+
+
+************** RESPONSE BODY ******************
+API Response Code : 200
+************** Verifying Response Data ******************
+PersonalEmail : test08@gmail.com
+HomePhone : 5678900
+WorkPhone : 123456789
+PersonalMobile : 5678900
+AddressLine1 : 580 George street
+AddressLine2 : townhall
+Suburb : Sydney
+State : 2
+PostCode : 2000
+Country : AU
+done: APIUpdateUserDetailSteps.GivenAWorkingUpdateUserContactDetailsApiAs(&lt;table&gt;) (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.74s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the PUT Request  called for an user</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - UpdateUserContactDetails] -->
+                            <pre class="log">done: APIUpdateUserDetailSteps.WhenThePUTRequestCalledForAnUser() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the result should show updated user contact details</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - UpdateUserContactDetails] -->
+                            <pre class="log">done: APIUpdateUserDetailSteps.ThenTheResultShouldShowUpdatedUserContactDetails() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.002s</td>
+                    </tr>
+            </table>
+            <a name="t-1777056048.0" />
+            <h3>Scenario: DeactivateUser (in SpecFlowProject1, deactivateuser)</h3>
+                <div class="description">
+                    tags: mytag
+                </div>
+            <ul>
+                <li>Status: Succeeded</li>
+                <li>Start time: 22/11/2022 7:08:43 AM</li>
+                <li>Execution time (sec): 0.7259608</li>
+                <li>Thread: #0</li>
+            </ul>
+            <table class="testEvents">
+                <tr>
+                    <th>Steps</th>
+                    <th>Trace</th>
+                    <th>Result</th>
+                </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Given deactivate user api as
+  --- table step argument ---
+  | deactivateUser                                         |
+  | /users/33c65058-17ac-11ed-8971-02ea2a01b072/deactivate |</pre>
+                        </td>
+                        <td>
+                            <!-- [TestArrange: Scenario - DeactivateUser] -->
+                            <pre class="log">API POST Response Status: 200
+ResponseCode found is: 200
+Summary found is: success
+Id found is: 33c65058-17ac-11ed-8971-02ea2a01b072
+success logs found is: SpecFlowProject1.DTO.successData
+successCount logs found is: 0
+failure logs found is: SpecFlowProject1.DTO.failureData
+failureCount logs found is: 0
+done: DeactivateUserSteps.GivenDeactivateUserApiAs(&lt;table&gt;) (0.7s)</pre>
+                        </td>
+                        <td>Succeeded in 0.709s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">When the POST method called</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAct: Scenario - DeactivateUser] -->
+                            <pre class="log">done: DeactivateUserSteps.WhenThePOSTMethodCalled() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.003s</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <pre class="log">Then the user shoud be deactivated</pre>
+                        </td>
+                        <td>
+                            <!-- [TestAssert: Scenario - DeactivateUser] -->
+                            <pre class="log">done: DeactivateUserSteps.ThenTheUserShoudBeDeactivated() (0.0s)</pre>
+                        </td>
+                        <td>Succeeded in 0.004s</td>
+                    </tr>
+            </table>
+	</body>
+</html>
